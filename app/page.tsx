@@ -1622,36 +1622,6 @@ I would like to request a quote/enquiry.
                     className="object-contain"
                   />
                 </a>
-                <a
-                  href="https://www.linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white/5 hover:bg-white/10 p-2 rounded border border-white/10 transition flex items-center justify-center"
-                  aria-label="LinkedIn Profile"
-                >
-                  <Image
-                    src="/social-icons/linkedin.png"
-                    alt="LinkedIn"
-                    width={18}
-                    height={18}
-                    className="object-contain"
-                  />
-                </a>
-                <a
-                  href="https://x.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white/5 hover:bg-white/10 p-2 rounded border border-white/10 transition flex items-center justify-center"
-                  aria-label="X Profile"
-                >
-                  <Image
-                    src="/social-icons/X.png"
-                    alt="X"
-                    width={18}
-                    height={18}
-                    className="object-contain invert"
-                  />
-                </a>
               </div>
             </div>
           </div>
