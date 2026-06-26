@@ -93,7 +93,7 @@ export default function Footer({ scrollToTop, scrollToSection }: FooterProps) {
                 />
               </a>
               <a
-                href="https://wa.me/918136076717"
+                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20visited%20your%20website%20and%20would%20like%20to%20chat%20about%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/5 hover:bg-white/10 p-2 rounded border border-white/10 transition flex items-center justify-center"

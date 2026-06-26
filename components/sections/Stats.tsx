@@ -20,13 +20,13 @@ export default function Stats({ yearsCount, reviewsCount, ratingCount }: StatsPr
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Copy */}
           <motion.div 
-            className="lg:col-span-6 flex flex-col space-y-6 text-center lg:text-left"
+            className="lg:col-span-6 flex flex-col space-y-6 text-left"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center justify-center lg:justify-start space-x-2 text-accent-amber font-heading font-extrabold text-xs uppercase tracking-widest">
+            <div className="flex items-center justify-start space-x-2 text-accent-amber font-heading font-extrabold text-xs uppercase tracking-widest">
               <span className="w-6 h-0.5 bg-accent-amber inline-block"></span>
               <span>Why Choose Pashupati Techno Dreams</span>
             </div>

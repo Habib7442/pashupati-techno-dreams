@@ -153,7 +153,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                 <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
               </motion.a>
               <motion.a
-                href="https://wa.me/918136076717"
+                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20would%20like%20to%20enquire%20about%20your%20engineering%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white border border-border-grey text-primary-navy hover:text-primary-navy-alt text-sm font-bold px-8 py-4 rounded shadow hover:bg-bg-soft transition text-center inline-flex items-center justify-center space-x-2"

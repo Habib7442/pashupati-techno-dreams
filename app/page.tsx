@@ -234,7 +234,7 @@ I would like to request a quote/enquiry.
 
         {/* CALL-TO-ACTION BAND */}
         <section className="bg-primary-navy py-12 text-white">
-          <div className="max-w-5xl mx-auto px-4 text-center flex flex-col items-center space-y-6">
+          <div className="max-w-5xl mx-auto px-4 text-left md:text-center flex flex-col items-start md:items-center space-y-6">
             <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-white">
               Planning to Build Your Home or Commercial Project?
             </h2>
@@ -242,19 +242,19 @@ I would like to request a quote/enquiry.
               Get in touch with Silchar's experienced chartered engineers. Let us design a compliant, safe,
               and optimized structure.
             </p>
-            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
               <a
                 href="tel:+919706609966"
-                className="bg-accent-amber text-primary-navy font-bold px-8 py-3.5 rounded hover:bg-white transition text-sm flex items-center justify-center font-heading"
+                className="bg-accent-amber text-primary-navy font-bold px-8 py-3.5 rounded hover:bg-white transition text-sm flex items-center justify-center font-heading w-full sm:w-auto"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call +91 97066 09966
               </a>
               <a
-                href="https://wa.me/918136076717"
+                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20would%20like%20to%20enquire%20about%20planning%20my%20building%20project."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-3.5 rounded transition text-sm flex items-center justify-center border border-white/20"
+                className="bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-3.5 rounded transition text-sm flex items-center justify-center border border-white/20 w-full sm:w-auto"
               >
                 WhatsApp Assistant
               </a>

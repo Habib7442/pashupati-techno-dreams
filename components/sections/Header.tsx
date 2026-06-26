@@ -217,7 +217,7 @@ export default function Header({
                 Call Now
               </a>
               <a
-                href="https://wa.me/918136076717"
+                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20building%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center bg-primary-navy text-white font-bold py-2.5 rounded-md text-sm"

@@ -55,8 +55,8 @@ export default function Projects({
     <section id="projects" className="py-16 lg:py-24 bg-white border-b border-border-grey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 flex flex-col space-y-4">
-          <div className="inline-flex self-center items-center space-x-2 text-accent-amber font-heading font-extrabold text-xs uppercase tracking-widest">
+        <div className="text-left md:text-center max-w-3xl md:mx-auto mb-12 flex flex-col space-y-4 items-start md:items-center">
+          <div className="inline-flex self-start md:self-center items-center space-x-2 text-accent-amber font-heading font-extrabold text-xs uppercase tracking-widest">
             <span className="w-6 h-0.5 bg-accent-amber inline-block"></span>
             <span>Our Work & Capabilities</span>
             <span className="w-6 h-0.5 bg-accent-amber inline-block"></span>
@@ -70,7 +70,7 @@ export default function Projects({
         </div>
 
         {/* Filtering buttons */}
-        <div className="flex flex-wrap justify-center gap-1.5 mb-12 bg-bg-soft p-1.5 rounded-full max-w-3xl mx-auto border border-border-grey/60">
+        <div className="flex flex-wrap justify-start md:justify-center gap-1.5 mb-12 bg-bg-soft p-1.5 rounded-3xl md:rounded-full max-w-3xl md:mx-auto border border-border-grey/60">
           {[
             { id: "all", label: "Show All" },
             { id: "buildings", label: "Buildings" },
