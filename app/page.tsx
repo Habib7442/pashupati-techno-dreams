@@ -211,7 +211,7 @@ I would like to request a quote/enquiry.
       />
 
       {/* MAIN SECTIONS */}
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden">
         {/* HERO */}
         <Hero scrollToSection={scrollToSection} />
 
