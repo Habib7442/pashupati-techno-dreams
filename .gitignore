@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agent and methodology metadata
+.agents/
+Six-File+Context+Methodology/
+*.log
+skills-lock.json
+
+

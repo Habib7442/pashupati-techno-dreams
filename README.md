@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pashupati Techno Dreams
 
-## Getting Started
+A premium, high-converting corporate landing page and website for **Pashupati Techno Dreams**, a premier civil engineering, architectural design, and construction consultancy based in Silchar, Assam.
 
-First, run the development server:
+Built with **Next.js**, **React**, **TypeScript**, and **Vanilla CSS** for optimized performance, stunning custom design, and local SEO relevance.
+
+---
+
+## 🏗️ Project Overview
+
+Pashupati Techno Dreams offers end-to-end civil engineering solutions, including:
+- **Structural Engineering & Analysis** (RCC & Steel structural design)
+- **Architectural 2D & 3D Drafting** (AutoCAD drawings and premium 3D renders)
+- **Interior & Exterior Designing**
+- **Land Surveying & Valuation**
+- **Class-I Government Contracting & Construction Management**
+
+This website serves as their primary digital storefront, featuring a high-converting Hero section with regional architectural style showcase, interactive stats counter, filterable project gallery, and integrated WhatsApp/email lead generation form.
+
+---
+
+## 🚀 Key Features
+
+- **Assam-Regional Responsive Design:** Custom-curated visuals featuring local modern 3-story RCC house styles.
+- **Dynamic Stats Counter:** An interactive counter that animates from 0 to target metrics as the user scrolls.
+- **Filterable Portfolio Gallery:** Filter projects by category (Residential, Commercial, Interior, Planning) dynamically.
+- **High-Converting Lead Form:** Fully validated contact form with redirect to WhatsApp chat (`wa.me`) or Email (`mailto`) fallbacks.
+- **Optimized for Search (SEO):** Includes structured `LocalBusiness` JSON-LD schema, local meta tags, and semantic HTML for Google Search visibility in Northeast India (Silchar, Cachar, Assam).
+- **Pure Light Mode:** Clean, professional corporate Navy Blue (`#103E6B`) and Warm Gold (`#E5A817`) color palette.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Vanilla CSS (Global variables, custom animations, diagonal clip-paths)
+- **Icons:** Custom SVGs and local assets
+
+---
+
+## 🏃 Getting Started
+
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📋 Folder Structure
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/` - Application router files, layouts, and page entry point.
+- `components/` - Reusable UI components (mobile drawer, navigation, etc.).
+- `public/` - Local images, icons, and branding materials.
+- `public/social-icons/` - Platform social assets used across utility bars and footers.
