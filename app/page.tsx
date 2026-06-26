@@ -452,7 +452,7 @@ I would like to request a quote/enquiry.
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column (Text & Content) */}
-            <div className="lg:col-span-7 py-12 lg:py-24 flex flex-col space-y-7 text-left pr-0 lg:pr-12">
+            <div className="lg:col-span-7 py-12 lg:py-24 flex flex-col space-y-4 sm:space-y-5 lg:space-y-7 text-left pr-0 lg:pr-12">
               <div className="inline-flex self-start items-center space-x-2 text-accent-amber font-heading font-extrabold text-xs uppercase tracking-widest">
                 <span className="w-6 h-0.5 bg-accent-amber inline-block"></span>
                 <span>A House of Skilled Engineers</span>
