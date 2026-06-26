@@ -47,6 +47,39 @@ export default function HomePage() {
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 
+  // Programmatic smooth scroll helper that avoids hashtag in URL
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    setMobileMenuOpen(false);
+    if (id === "top") {
+      scrollToTop(e);
+    } else {
+      scrollToSection(e, id);
+    }
+  };
+
   // Scroll detection for sticky header compression
   useEffect(() => {
     const handleScroll = () => {
@@ -239,7 +272,7 @@ I would like to request a quote/enquiry.
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* Logo brand */}
-          <a href="#" className="flex items-center space-x-3">
+          <a href="#" onClick={scrollToTop} className="flex items-center space-x-3">
             <Image
               src="/logo.png"
               alt="Pashupati Techno Dreams Logo"
@@ -252,29 +285,30 @@ I would like to request a quote/enquiry.
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center space-x-8 font-heading text-sm font-semibold">
-            <a href="#" className="text-primary-navy hover:text-accent-amber transition">
+            <a href="#" onClick={scrollToTop} className="text-primary-navy hover:text-accent-amber transition">
               Home
             </a>
-            <a href="#about" className="text-body-slate hover:text-accent-amber transition">
+            <a href="#about" onClick={(e) => scrollToSection(e, "about")} className="text-body-slate hover:text-accent-amber transition">
               About
             </a>
-            <a href="#services" className="text-body-slate hover:text-accent-amber transition">
+            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="text-body-slate hover:text-accent-amber transition">
               Services
             </a>
-            <a href="#projects" className="text-body-slate hover:text-accent-amber transition">
+            <a href="#projects" onClick={(e) => scrollToSection(e, "projects")} className="text-body-slate hover:text-accent-amber transition">
               Projects
             </a>
-            <a href="#team" className="text-body-slate hover:text-accent-amber transition">
+            <a href="#team" onClick={(e) => scrollToSection(e, "team")} className="text-body-slate hover:text-accent-amber transition">
               Team
             </a>
-            <a href="#reviews" className="text-body-slate hover:text-accent-amber transition">
+            <a href="#reviews" onClick={(e) => scrollToSection(e, "reviews")} className="text-body-slate hover:text-accent-amber transition">
               Reviews
             </a>
-            <a href="#contact" className="text-body-slate hover:text-accent-amber transition">
+            <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-body-slate hover:text-accent-amber transition">
               Contact
             </a>
             <a
               href="#contact"
+              onClick={(e) => scrollToSection(e, "contact")}
               className="bg-primary-navy text-white text-xs px-5 py-2.5 rounded-md hover:bg-primary-navy-alt transition shadow-sm"
             >
               Get a Quote
@@ -314,49 +348,49 @@ I would like to request a quote/enquiry.
             <nav className="flex flex-col space-y-4 font-heading font-semibold text-base">
               <a
                 href="#"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, "top")}
                 className="text-primary-navy hover:text-accent-amber py-2 border-b border-border-grey/50"
               >
                 Home
               </a>
               <a
                 href="#about"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, "about")}
                 className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
               >
                 About Us
               </a>
               <a
                 href="#services"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, "services")}
                 className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
               >
                 Services
               </a>
               <a
                 href="#projects"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, "projects")}
                 className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
               >
                 Our Work
               </a>
               <a
                 href="#team"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, "team")}
                 className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
               >
                 Our Engineers
               </a>
               <a
                 href="#reviews"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, "reviews")}
                 className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
               >
                 Testimonials
               </a>
               <a
                 href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, "contact")}
                 className="text-body-slate hover:text-accent-amber py-2"
               >
                 Contact
@@ -457,6 +491,7 @@ I would like to request a quote/enquiry.
               <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
                 <a
                   href="#contact"
+                  onClick={(e) => scrollToSection(e, "contact")}
                   className="bg-primary-navy text-white text-sm font-bold px-8 py-4 rounded shadow-lg hover:bg-primary-navy-alt transition text-center inline-flex items-center justify-center group"
                 >
                   <span>Get Your Free Quote</span>
@@ -696,7 +731,7 @@ I would like to request a quote/enquiry.
               <p className="text-xs text-body-slate leading-relaxed mb-4">
                 Detailed 2D layout planning, structural blueprints, elevations, cross-sections, and detailed architectural CAD files.
               </p>
-              <a href="#contact" className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
+              <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
                 <span>Inquire service</span>
                 <span className="ml-1.5 group-hover/link:translate-x-1 transition-transform duration-300">&rarr;</span>
               </a>
@@ -715,7 +750,7 @@ I would like to request a quote/enquiry.
               <p className="text-xs text-body-slate leading-relaxed mb-4">
                 High-integrity concrete/steel design, column alignments, foundation designs, and load estimations following BIS codes.
               </p>
-              <a href="#contact" className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
+              <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
                 <span>Inquire service</span>
                 <span className="ml-1.5 group-hover/link:translate-x-1 transition-transform duration-300">&rarr;</span>
               </a>
@@ -734,7 +769,7 @@ I would like to request a quote/enquiry.
               <p className="text-xs text-body-slate leading-relaxed mb-4">
                 Complete site planning, municipal drawing approvals, construction estimation, and supervised execution.
               </p>
-              <a href="#contact" className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
+              <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
                 <span>Inquire service</span>
                 <span className="ml-1.5 group-hover/link:translate-x-1 transition-transform duration-300">&rarr;</span>
               </a>
@@ -750,7 +785,7 @@ I would like to request a quote/enquiry.
               <p className="text-xs text-body-slate leading-relaxed mb-4">
                 Design planning for roadway corridors, concrete bridge structures, drainage structures, and road layouts.
               </p>
-              <a href="#contact" className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
+              <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
                 <span>Inquire service</span>
                 <span className="ml-1.5 group-hover/link:translate-x-1 transition-transform duration-300">&rarr;</span>
               </a>
@@ -766,7 +801,7 @@ I would like to request a quote/enquiry.
               <p className="text-xs text-body-slate leading-relaxed mb-4">
                 High-precision boundary surveying, topographic contours, area mapping, and elevation markings using digital instruments.
               </p>
-              <a href="#contact" className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
+              <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
                 <span>Inquire service</span>
                 <span className="ml-1.5 group-hover/link:translate-x-1 transition-transform duration-300">&rarr;</span>
               </a>
@@ -782,7 +817,7 @@ I would like to request a quote/enquiry.
               <p className="text-xs text-body-slate leading-relaxed mb-4">
                 Spatial configurations, room positioning, and entryway orientations aligned with principles of traditional Vastu Shastra.
               </p>
-              <a href="#contact" className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
+              <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
                 <span>Inquire service</span>
                 <span className="ml-1.5 group-hover/link:translate-x-1 transition-transform duration-300">&rarr;</span>
               </a>
@@ -798,7 +833,7 @@ I would like to request a quote/enquiry.
               <p className="text-xs text-body-slate leading-relaxed mb-4">
                 Space planning, customized lighting layouts, modern kitchen visualisations, and photorealistic 3D interior renders.
               </p>
-              <a href="#contact" className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
+              <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
                 <span>Inquire service</span>
                 <span className="ml-1.5 group-hover/link:translate-x-1 transition-transform duration-300">&rarr;</span>
               </a>
@@ -814,7 +849,7 @@ I would like to request a quote/enquiry.
               <p className="text-xs text-body-slate leading-relaxed mb-4">
                 Detailed bills of quantity (BOQ), material estimation, building valuation reports, and civil project costing.
               </p>
-              <a href="#contact" className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
+              <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-xs text-secondary-steel font-bold hover:text-accent-amber mt-auto inline-flex items-center group/link">
                 <span>Inquire service</span>
                 <span className="ml-1.5 group-hover/link:translate-x-1 transition-transform duration-300">&rarr;</span>
               </a>
@@ -950,9 +985,13 @@ I would like to request a quote/enquiry.
                     sizes="(max-w-720px) 100vw, 300px"
                   />
                   <div className="absolute inset-0 bg-primary-navy/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                    <span className="bg-white text-primary-navy text-xs font-extrabold px-5 py-2.5 rounded shadow-lg uppercase tracking-wider scale-95 group-hover:scale-100 transition-all duration-300">
+                    <a
+                      href="#contact"
+                      onClick={(e) => scrollToSection(e, "contact")}
+                      className="bg-white text-primary-navy text-xs font-extrabold px-5 py-2.5 rounded shadow-lg uppercase tracking-wider scale-95 group-hover:scale-100 transition-all duration-300 cursor-pointer"
+                    >
                       Inquire Details
-                    </span>
+                    </a>
                   </div>
                 </div>
                 <div className="p-5 border-t border-border-grey flex flex-col justify-between flex-grow">
@@ -1301,13 +1340,13 @@ I would like to request a quote/enquiry.
               <div className="overflow-hidden rounded-xl shadow-md border border-border-grey aspect-16/10 bg-white relative">
                 <iframe
                   title="Pashupati Techno Dreams Office Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d1810.0526019559495!2d92.7963473!3d24.825833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e4a7d79b9ef9b%3A0xe968478d1f2b60ab!2sPashupati%20Techno%20Dreams!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14483.780545957758!2d92.77659688077296!3d24.831549771162145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e4a604d25fa55%3A0xcedb965aeac6de25!2sPASHUPATI%20TECHNO%20DREAMS!5e0!3m2!1sen!2sin!4v1782472240745!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   className="grayscale hover:grayscale-0 transition-all duration-500"
                 ></iframe>
               </div>
@@ -1473,7 +1512,7 @@ I would like to request a quote/enquiry.
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {/* Column 1: About */}
             <div className="flex flex-col space-y-4">
-              <a href="#" className="flex items-center space-x-2">
+              <a href="#" onClick={scrollToTop} className="flex items-center space-x-2">
                 <div className="w-10 h-10 rounded bg-white flex items-center justify-center p-1 relative">
                   <Image
                     src="/logo.png"
@@ -1506,12 +1545,12 @@ I would like to request a quote/enquiry.
               <h4 className="text-white font-bold uppercase tracking-wider text-sm border-b border-white/10 pb-2 mb-1">
                 Quick Directory
               </h4>
-              <a href="#" className="hover:text-accent-amber transition">Home Page</a>
-              <a href="#about" className="hover:text-accent-amber transition">About Firm</a>
-              <a href="#services" className="hover:text-accent-amber transition">Our Services</a>
-              <a href="#projects" className="hover:text-accent-amber transition">Capabilities Gallery</a>
-              <a href="#team" className="hover:text-accent-amber transition">Lead Engineers</a>
-              <a href="#reviews" className="hover:text-accent-amber transition">Google Reviews</a>
+              <a href="#" onClick={scrollToTop} className="hover:text-accent-amber transition">Home Page</a>
+              <a href="#about" onClick={(e) => scrollToSection(e, "about")} className="hover:text-accent-amber transition">About Firm</a>
+              <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Our Services</a>
+              <a href="#projects" onClick={(e) => scrollToSection(e, "projects")} className="hover:text-accent-amber transition">Capabilities Gallery</a>
+              <a href="#team" onClick={(e) => scrollToSection(e, "team")} className="hover:text-accent-amber transition">Lead Engineers</a>
+              <a href="#reviews" onClick={(e) => scrollToSection(e, "reviews")} className="hover:text-accent-amber transition">Google Reviews</a>
             </div>
 
             {/* Column 3: Services Links */}
@@ -1519,12 +1558,12 @@ I would like to request a quote/enquiry.
               <h4 className="text-white font-bold uppercase tracking-wider text-sm border-b border-white/10 pb-2 mb-1">
                 Engineering Services
               </h4>
-              <a href="#services" className="hover:text-accent-amber transition">AutoCAD Blueprints</a>
-              <a href="#services" className="hover:text-accent-amber transition">RCC Structural Design</a>
-              <a href="#services" className="hover:text-accent-amber transition">Total Station Surveying</a>
-              <a href="#services" className="hover:text-accent-amber transition">Vastu spatial layouts</a>
-              <a href="#services" className="hover:text-accent-amber transition">Bridge & Road planning</a>
-              <a href="#services" className="hover:text-accent-amber transition">Interior 3D Rendering</a>
+              <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">AutoCAD Blueprints</a>
+              <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">RCC Structural Design</a>
+              <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Total Station Surveying</a>
+              <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Vastu spatial layouts</a>
+              <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Bridge & Road planning</a>
+              <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Interior 3D Rendering</a>
             </div>
 
             {/* Column 4: Contact/Socials */}
