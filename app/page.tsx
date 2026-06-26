@@ -1336,20 +1336,6 @@ I would like to request a quote/enquiry.
                 </div>
               </div>
 
-              {/* Embedded Google Map */}
-              <div className="overflow-hidden rounded-xl shadow-md border border-border-grey aspect-16/10 bg-white relative">
-                <iframe
-                  title="Pashupati Techno Dreams Office Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14483.780545957758!2d92.77659688077296!3d24.831549771162145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e4a604d25fa55%3A0xcedb965aeac6de25!2sPASHUPATI%20TECHNO%20DREAMS!5e0!3m2!1sen!2sin!4v1782472240745!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  className="w-full h-full transition-all duration-500"
-                ></iframe>
-              </div>
             </div>
 
             {/* Right Contact Form Column */}
@@ -1502,6 +1488,21 @@ I would like to request a quote/enquiry.
                 </form>
               )}
             </div>
+          </div>
+
+          {/* Embedded Google Map (Full Width) */}
+          <div className="mt-12 overflow-hidden rounded-xl shadow-md border border-border-grey bg-white relative w-full h-[250px] sm:h-[350px] lg:h-[400px]">
+            <iframe
+              title="Pashupati Techno Dreams Office Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14483.780545957758!2d92.77659688077296!3d24.831549771162145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e4a604d25fa55%3A0xcedb965aeac6de25!2sPASHUPATI%20TECHNO%20DREAMS!5e0!3m2!1sen!2sin!4v1782472240745!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              className="w-full h-full transition-all duration-500"
+            ></iframe>
           </div>
         </div>
       </section>
