@@ -1649,7 +1649,7 @@ I would like to request a quote/enquiry.
                     alt="X"
                     width={18}
                     height={18}
-                    className="object-contain"
+                    className="object-contain invert"
                   />
                 </a>
               </div>
