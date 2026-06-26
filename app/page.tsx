@@ -109,6 +109,18 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile drawer or modal is active
+  useEffect(() => {
+    if (mobileMenuOpen || isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen, isModalOpen]);
+
   // Simple statistics count animation on mount
   useEffect(() => {
     const duration = 2000; // ms
