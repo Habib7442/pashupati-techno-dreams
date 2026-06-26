@@ -201,7 +201,7 @@ I would like to request a quote/enquiry.
 *Message:* ${formData.message}`;
 
     const encodedMessage = encodeURIComponent(formattedMessage);
-    const whatsappUrl = `https://wa.me/919706609966?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/918136076717?text=${encodedMessage}`;
 
     // Redirect user to WhatsApp API
     window.open(whatsappUrl, "_blank");
@@ -405,7 +405,7 @@ I would like to request a quote/enquiry.
                 Call Now
               </a>
               <a
-                href="https://wa.me/919706609966"
+                href="https://wa.me/918136076717"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center bg-primary-navy text-white font-bold py-2.5 rounded-md text-sm"
@@ -498,7 +498,7 @@ I would like to request a quote/enquiry.
                   <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
                 </a>
                 <a
-                  href="https://wa.me/919706609966"
+                  href="https://wa.me/918136076717"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white border border-border-grey text-primary-navy hover:text-primary-navy-alt text-sm font-bold px-8 py-4 rounded shadow hover:bg-bg-soft transition text-center inline-flex items-center justify-center space-x-2"
@@ -1357,7 +1357,7 @@ I would like to request a quote/enquiry.
                   <button
                     onClick={() => {
                       const formattedMessage = `Hello Pashupati Techno Dreams, I would like to request a quote/enquiry. *Name:* ${formData.name} *Phone:* ${formData.phone} *Service:* ${formData.service} *Message:* ${formData.message}`;
-                      window.open(`https://wa.me/919706609966?text=${encodeURIComponent(formattedMessage)}`, "_blank");
+                      window.open(`https://wa.me/918136076717?text=${encodeURIComponent(formattedMessage)}`, "_blank");
                     }}
                     className="bg-primary-navy text-white text-xs font-bold px-8 py-3 rounded-lg hover:bg-primary-navy-alt transition shadow-md"
                   >
@@ -1593,7 +1593,7 @@ I would like to request a quote/enquiry.
                   />
                 </a>
                 <a
-                  href="https://wa.me/919706609966"
+                  href="https://wa.me/918136076717"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white/5 hover:bg-white/10 p-2 rounded border border-white/10 transition flex items-center justify-center"
