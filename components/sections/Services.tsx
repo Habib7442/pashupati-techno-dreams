@@ -89,7 +89,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
               </p>
               <button
                 onClick={() => openEnquiryModal("AutoCAD Drawings")}
-                className="w-full bg-white/5 hover:bg-accent-amber text-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-white/10 hover:border-transparent cursor-pointer"
+                className="w-full bg-accent-amber text-primary-navy hover:bg-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-transparent cursor-pointer shadow-sm"
               >
                 Inquire Service
               </button>
@@ -124,7 +124,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
               </p>
               <button
                 onClick={() => openEnquiryModal("Structural Design")}
-                className="w-full bg-white/5 hover:bg-accent-amber text-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-white/10 hover:border-transparent cursor-pointer"
+                className="w-full bg-accent-amber text-primary-navy hover:bg-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-transparent cursor-pointer shadow-sm"
               >
                 Inquire Service
               </button>
@@ -159,7 +159,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
               </p>
               <button
                 onClick={() => openEnquiryModal("Building Planning & Construction")}
-                className="w-full bg-white/5 hover:bg-accent-amber text-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-white/10 hover:border-transparent cursor-pointer"
+                className="w-full bg-accent-amber text-primary-navy hover:bg-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-transparent cursor-pointer shadow-sm"
               >
                 Inquire Service
               </button>
@@ -191,7 +191,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
               </p>
               <button
                 onClick={() => openEnquiryModal("Bridge & Highway Engineering")}
-                className="w-full bg-white/5 hover:bg-accent-amber text-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-white/10 hover:border-transparent cursor-pointer"
+                className="w-full bg-accent-amber text-primary-navy hover:bg-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-transparent cursor-pointer shadow-sm"
               >
                 Inquire Service
               </button>
@@ -223,7 +223,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
               </p>
               <button
                 onClick={() => openEnquiryModal("Land Surveying")}
-                className="w-full bg-white/5 hover:bg-accent-amber text-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-white/10 hover:border-transparent cursor-pointer"
+                className="w-full bg-accent-amber text-primary-navy hover:bg-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-transparent cursor-pointer shadow-sm"
               >
                 Inquire Service
               </button>
@@ -255,7 +255,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
               </p>
               <button
                 onClick={() => openEnquiryModal("Vastu-Compliant Planning")}
-                className="w-full bg-white/5 hover:bg-accent-amber text-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-white/10 hover:border-transparent cursor-pointer"
+                className="w-full bg-accent-amber text-primary-navy hover:bg-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-transparent cursor-pointer shadow-sm"
               >
                 Inquire Service
               </button>
@@ -287,7 +287,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
               </p>
               <button
                 onClick={() => openEnquiryModal("Interior Design")}
-                className="w-full bg-white/5 hover:bg-accent-amber text-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-white/10 hover:border-transparent cursor-pointer"
+                className="w-full bg-accent-amber text-primary-navy hover:bg-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-transparent cursor-pointer shadow-sm"
               >
                 Inquire Service
               </button>
@@ -319,7 +319,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
               </p>
               <button
                 onClick={() => openEnquiryModal("Estimation & Valuation")}
-                className="w-full bg-white/5 hover:bg-accent-amber text-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-white/10 hover:border-transparent cursor-pointer"
+                className="w-full bg-accent-amber text-primary-navy hover:bg-white hover:text-primary-navy text-xs font-bold py-3 rounded-lg text-center transition-all duration-300 mt-auto border border-transparent cursor-pointer shadow-sm"
               >
                 Inquire Service
               </button>
