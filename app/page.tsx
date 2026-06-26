@@ -1347,13 +1347,13 @@ I would like to request a quote/enquiry.
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="strict-origin-when-cross-origin"
-                  className="grayscale hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full transition-all duration-500"
                 ></iframe>
               </div>
             </div>
 
             {/* Right Contact Form Column */}
-            <div className="lg:col-span-7 bg-white rounded-xl p-6 sm:p-8 shadow-md border border-border-grey relative overflow-hidden">
+            <div className="lg:col-span-7 bg-white rounded-xl p-6 sm:p-8 shadow-md border border-border-grey relative overflow-hidden self-start">
               <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary-navy to-accent-amber"></div>
               
               <h3 className="text-lg font-extrabold text-headings-ink mb-6 pb-3 border-b border-border-grey flex items-center justify-between">
