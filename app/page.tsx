@@ -430,7 +430,7 @@ I would like to request a quote/enquiry.
             className="object-cover"
             priority
             loading="eager"
-            sizes="50vw"
+            sizes="(min-width: 1024px) 50vw, 1px"
           />
           {/* Glowing gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/20 to-transparent"></div>
@@ -542,7 +542,7 @@ I would like to request a quote/enquiry.
                 className="object-cover"
                 priority
                 loading="eager"
-                sizes="100vw"
+                sizes="(max-width: 1024px) 100vw, 1px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/40 to-transparent"></div>
               
