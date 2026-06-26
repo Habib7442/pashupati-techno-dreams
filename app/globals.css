@@ -130,3 +130,22 @@
 .animate-scale-up {
   animation: scaleUp 0.2s ease-out forwards;
 }
+
+/* Premium horizontal scrollbar for reviews */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(229, 168, 23, 0.25);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(229, 168, 23, 0.5);
+}

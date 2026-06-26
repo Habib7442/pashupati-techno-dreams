@@ -97,30 +97,91 @@ export default function Header({
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center space-x-8 font-heading text-sm font-semibold">
-            <a href="#" onClick={scrollToTop} className="text-primary-navy hover:text-accent-amber transition">
+            <a 
+              href="/" 
+              onClick={(e) => { 
+                if (typeof window !== "undefined" && window.location.pathname === "/") { 
+                  e.preventDefault(); 
+                  scrollToTop(e); 
+                } 
+              }} 
+              className="text-primary-navy hover:text-accent-amber transition"
+            >
               Home
             </a>
-            <a href="#about" onClick={(e) => scrollToSection(e, "about")} className="text-body-slate hover:text-accent-amber transition">
+            <a 
+              href="/#about" 
+              onClick={(e) => { 
+                if (typeof window !== "undefined" && window.location.pathname === "/") { 
+                  scrollToSection(e, "about"); 
+                } 
+              }} 
+              className="text-body-slate hover:text-accent-amber transition"
+            >
               About
             </a>
-            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="text-body-slate hover:text-accent-amber transition">
+            <a 
+              href="/#services" 
+              onClick={(e) => { 
+                if (typeof window !== "undefined" && window.location.pathname === "/") { 
+                  scrollToSection(e, "services"); 
+                } 
+              }} 
+              className="text-body-slate hover:text-accent-amber transition"
+            >
               Services
             </a>
-            <a href="#projects" onClick={(e) => scrollToSection(e, "projects")} className="text-body-slate hover:text-accent-amber transition">
+            <a 
+              href="/#projects" 
+              onClick={(e) => { 
+                if (typeof window !== "undefined" && window.location.pathname === "/") { 
+                  scrollToSection(e, "projects"); 
+                } 
+              }} 
+              className="text-body-slate hover:text-accent-amber transition"
+            >
               Projects
             </a>
-            <a href="#team" onClick={(e) => scrollToSection(e, "team")} className="text-body-slate hover:text-accent-amber transition">
+            <a 
+              href="/#team" 
+              onClick={(e) => { 
+                if (typeof window !== "undefined" && window.location.pathname === "/") { 
+                  scrollToSection(e, "team"); 
+                } 
+              }} 
+              className="text-body-slate hover:text-accent-amber transition"
+            >
               Team
             </a>
-            <a href="#reviews" onClick={(e) => scrollToSection(e, "reviews")} className="text-body-slate hover:text-accent-amber transition">
+            <a 
+              href="/#reviews" 
+              onClick={(e) => { 
+                if (typeof window !== "undefined" && window.location.pathname === "/") { 
+                  scrollToSection(e, "reviews"); 
+                } 
+              }} 
+              className="text-body-slate hover:text-accent-amber transition"
+            >
               Reviews
             </a>
-            <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-body-slate hover:text-accent-amber transition">
+            <a 
+              href="/#contact" 
+              onClick={(e) => { 
+                if (typeof window !== "undefined" && window.location.pathname === "/") { 
+                  scrollToSection(e, "contact"); 
+                } 
+              }} 
+              className="text-body-slate hover:text-accent-amber transition"
+            >
               Contact
             </a>
             <a
-              href="#contact"
-              onClick={(e) => scrollToSection(e, "contact")}
+              href="/#contact"
+              onClick={(e) => { 
+                if (typeof window !== "undefined" && window.location.pathname === "/") { 
+                  scrollToSection(e, "contact"); 
+                } 
+              }}
               className="bg-primary-navy text-white text-xs px-5 py-2.5 rounded-md hover:bg-primary-navy-alt transition shadow-sm"
             >
               Get a Quote
@@ -159,50 +220,92 @@ export default function Header({
             </div>
             <nav className="flex flex-col space-y-4 font-heading font-semibold text-base">
               <a
-                href="#"
-                onClick={(e) => handleMobileNavClick(e, "top")}
-                className="text-primary-navy hover:text-accent-amber py-2 border-b border-border-grey/50"
+                href="/"
+                onClick={(e) => {
+                  if (typeof window !== "undefined" && window.location.pathname === "/") {
+                    handleMobileNavClick(e, "top");
+                  } else {
+                    setMobileMenuOpen(false);
+                  }
+                }}
+                className="text-primary-navy hover:text-accent-amber py-2 border-b border-border-grey/55"
               >
                 Home
               </a>
               <a
-                href="#about"
-                onClick={(e) => handleMobileNavClick(e, "about")}
-                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
+                href="/#about"
+                onClick={(e) => {
+                  if (typeof window !== "undefined" && window.location.pathname === "/") {
+                    handleMobileNavClick(e, "about");
+                  } else {
+                    setMobileMenuOpen(false);
+                  }
+                }}
+                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/55"
               >
                 About Us
               </a>
               <a
-                href="#services"
-                onClick={(e) => handleMobileNavClick(e, "services")}
-                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
+                href="/#services"
+                onClick={(e) => {
+                  if (typeof window !== "undefined" && window.location.pathname === "/") {
+                    handleMobileNavClick(e, "services");
+                  } else {
+                    setMobileMenuOpen(false);
+                  }
+                }}
+                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/55"
               >
                 Services
               </a>
               <a
-                href="#projects"
-                onClick={(e) => handleMobileNavClick(e, "projects")}
-                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
+                href="/#projects"
+                onClick={(e) => {
+                  if (typeof window !== "undefined" && window.location.pathname === "/") {
+                    handleMobileNavClick(e, "projects");
+                  } else {
+                    setMobileMenuOpen(false);
+                  }
+                }}
+                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/55"
               >
                 Our Work
               </a>
               <a
-                href="#team"
-                onClick={(e) => handleMobileNavClick(e, "team")}
-                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
+                href="/#team"
+                onClick={(e) => {
+                  if (typeof window !== "undefined" && window.location.pathname === "/") {
+                    handleMobileNavClick(e, "team");
+                  } else {
+                    setMobileMenuOpen(false);
+                  }
+                }}
+                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/55"
               >
                 Our Engineers
               </a>
               <a
-                href="#reviews"
-                onClick={(e) => handleMobileNavClick(e, "reviews")}
-                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/50"
+                href="/#reviews"
+                onClick={(e) => {
+                  if (typeof window !== "undefined" && window.location.pathname === "/") {
+                    handleMobileNavClick(e, "reviews");
+                  } else {
+                    setMobileMenuOpen(false);
+                  }
+                }}
+                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/55"
               >
                 Testimonials
               </a>
               <a
-                href="#contact"
-                onClick={(e) => handleMobileNavClick(e, "contact")}
+                href="/#contact"
+                onClick={(e) => {
+                  if (typeof window !== "undefined" && window.location.pathname === "/") {
+                    handleMobileNavClick(e, "contact");
+                  } else {
+                    setMobileMenuOpen(false);
+                  }
+                }}
                 className="text-body-slate hover:text-accent-amber py-2"
               >
                 Contact

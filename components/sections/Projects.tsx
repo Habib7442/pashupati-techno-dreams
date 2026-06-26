@@ -2,60 +2,47 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
-export interface ProjectsProps {
-  activeFilter: string;
-  setActiveFilter: (filter: string) => void;
-  openEnquiryModal: (serviceName: string) => void;
-}
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.95, y: 15 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 100, damping: 15 },
+  },
+} as const;
 
-const galleryItems = [
-  {
-    id: 1,
-    category: "buildings",
-    title: "Multi-Story RCC Structure",
-    subtitle: "Structural Design & Drawings",
-    image: "/rcc_building.png",
-  },
-  {
-    id: 2,
-    category: "bridges",
-    title: "Assam Highway Bridge",
-    subtitle: "Government Highway Engineering",
-    image: "/bridge_construction.png",
-  },
-  {
-    id: 3,
-    category: "surveying",
-    title: "Topographical Contour Survey",
-    subtitle: "Total Station Land Surveying",
-    image: "/land_survey.png",
-  },
-  {
-    id: 4,
-    category: "interior",
-    title: "Modern Executive Lounge",
-    subtitle: "3D Rendering & Space Planning",
-    image: "/interior_render.png",
-  },
-];
+// The 15 optimized WebP gallery images
+export const galleryImages = [
+  "/gallery/img_20201220_153429_rotated.webp",
+  "/gallery/awc.webp",
+  "/gallery/20210827_164100.webp",
+  "/gallery/20220103_133347.webp",
+  "/gallery/20220103_150458.webp",
+  "/gallery/20211101_164046.webp",
+  "/gallery/img_20170413_121004965.webp",
+  "/gallery/3d-copy.webp",
+  "/gallery/img_20170112_165806764.webp",
+  "/gallery/img_20210425_101235.webp",
+  "/gallery/img-20181121-wa0006.webp",
+  "/gallery/whatsapp-image-2021-09-16-at-22.54.36.webp",
+  "/gallery/whatsapp-image-2022-01-27-at-10.16.00.webp",
+  "/gallery/img_20210212_115344.webp",
+  "/gallery/wdadw.webp",
+] as const;
 
-export default function Projects({
-  activeFilter,
-  setActiveFilter,
-  openEnquiryModal,
-}: ProjectsProps) {
-  const filteredGallery =
-    activeFilter === "all"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === activeFilter);
+export default function Projects() {
+  // Show first 8 images on the homepage Projects section
+  const homepageImages = galleryImages.slice(0, 8);
 
   return (
     <section id="projects" className="py-16 lg:py-24 bg-white border-b border-border-grey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-left md:text-center max-w-3xl md:mx-auto mb-12 flex flex-col space-y-4 items-start md:items-center">
+        <div className="text-left md:text-center max-w-3xl md:mx-auto mb-16 flex flex-col space-y-4 items-start md:items-center">
           <div className="inline-flex self-start md:self-center items-center space-x-2 text-accent-amber font-heading font-extrabold text-xs uppercase tracking-widest">
             <span className="w-6 h-0.5 bg-accent-amber inline-block"></span>
             <span>Our Work & Capabilities</span>
@@ -69,96 +56,42 @@ export default function Projects({
           </p>
         </div>
 
-        {/* Filtering buttons */}
-        <div className="flex flex-wrap justify-start md:justify-center gap-1.5 mb-12 bg-bg-soft p-1.5 rounded-3xl md:rounded-full max-w-3xl md:mx-auto border border-border-grey/60">
-          {[
-            { id: "all", label: "Show All" },
-            { id: "buildings", label: "Buildings" },
-            { id: "bridges", label: "Bridges" },
-            { id: "surveying", label: "Surveying" },
-            { id: "interior", label: "3D Interior Design" },
-          ].map((filter) => (
-            <button
-              key={filter.id}
-              onClick={() => setActiveFilter(filter.id)}
-              className={`px-5 py-2.5 rounded-full font-heading font-extrabold text-[10px] sm:text-xs uppercase tracking-wider transition-all duration-300 relative ${
-                activeFilter === filter.id
-                  ? "text-white z-10"
-                  : "text-body-slate hover:text-primary-navy"
-              }`}
-            >
-              {activeFilter === filter.id && (
-                <motion.span 
-                  layoutId="activeFilterBg"
-                  className="absolute inset-0 bg-primary-navy rounded-full -z-10 shadow-md"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-              {filter.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Image grid */}
+        {/* Image Grid - 4 Columns on desktop, no filters, no text overlays */}
         <motion.div 
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 min-h-[300px]"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ staggerChildren: 0.05 }}
         >
-          <AnimatePresence mode="popLayout">
-            {filteredGallery.map((item) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="group bg-white rounded-xl overflow-hidden border border-border-grey hover:shadow-xl transition-all duration-300 flex flex-col"
-              >
-                <div className="overflow-hidden aspect-4/3 relative bg-border-grey">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-all duration-500"
-                    sizes="(max-w-720px) 100vw, 300px"
-                  />
-                  <div className="absolute inset-0 bg-primary-navy/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                    <button
-                      onClick={() => {
-                        const serviceMap: Record<string, string> = {
-                          buildings: "Structural Design",
-                          bridges: "Bridge & Highway Engineering",
-                          surveying: "Land Surveying",
-                          interior: "Interior Design",
-                        };
-                        openEnquiryModal(serviceMap[item.category] || "");
-                      }}
-                      className="bg-white text-primary-navy text-xs font-extrabold px-5 py-2.5 rounded shadow-lg uppercase tracking-wider scale-95 group-hover:scale-100 transition-all duration-300 cursor-pointer"
-                    >
-                      Inquire Details
-                    </button>
-                  </div>
-                </div>
-                <div className="p-5 border-t border-border-grey flex flex-col justify-between flex-grow">
-                  <div>
-                    <span className="inline-block text-[8px] font-extrabold text-accent-amber uppercase tracking-widest bg-accent-amber/5 px-2 py-0.5 rounded mb-2">
-                      {item.category === "buildings"
-                        ? "Residential & Commercial"
-                        : item.category === "bridges"
-                        ? "Infrastructure"
-                        : item.category}
-                    </span>
-                    <h3 className="text-sm font-extrabold text-headings-ink leading-snug group-hover:text-primary-navy transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-body-slate mt-2 leading-relaxed">{item.subtitle}</p>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          {homepageImages.map((imagePath, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              className="group bg-white rounded-xl overflow-hidden border border-border-grey hover:shadow-xl transition-all duration-300 flex flex-col"
+            >
+              <div className="overflow-hidden aspect-4/3 relative bg-border-grey">
+                <Image
+                  src={imagePath}
+                  alt={`Project Gallery ${index + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-all duration-500"
+                  sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 25vw"
+                />
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
+
+        {/* Show All CTA Button linking to separate /gallery route */}
+        <div className="text-center mt-10">
+          <Link
+            href="/gallery"
+            className="bg-primary-navy hover:bg-primary-navy-alt text-white font-bold px-8 py-4 rounded shadow-lg transition text-sm inline-flex items-center justify-center font-heading"
+          >
+            Show All Projects &rarr;
+          </Link>
+        </div>
       </div>
     </section>
   );

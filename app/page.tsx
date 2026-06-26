@@ -232,11 +232,7 @@ I would like to request a quote/enquiry.
         />
 
         {/* PROJECTS */}
-        <Projects
-          activeFilter={activeFilter}
-          setActiveFilter={setActiveFilter}
-          openEnquiryModal={openEnquiryModal}
-        />
+        <Projects />
 
         {/* TEAM */}
         <Team />
