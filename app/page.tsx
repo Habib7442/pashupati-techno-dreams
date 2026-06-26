@@ -395,6 +395,7 @@ I would like to request a quote/enquiry.
             fill
             className="object-cover"
             priority
+            loading="eager"
             sizes="50vw"
           />
           {/* Glowing gradient overlay */}
@@ -504,6 +505,8 @@ I would like to request a quote/enquiry.
                 alt="Modern RCC House"
                 fill
                 className="object-cover"
+                priority
+                loading="eager"
                 sizes="100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/40 to-transparent"></div>
