@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, phone, email, service, message } = body;
 
-    // Basic server-side validation
+    // Server-side validation
     if (!name || !phone || !service || !message) {
       return NextResponse.json(
         { error: "Name, phone, service, and message are required." },
@@ -15,38 +13,53 @@ export async function POST(request: Request) {
       );
     }
 
-    const dataDir = path.join(process.cwd(), "data");
-    const filePath = path.join(dataDir, "enquiries.csv");
-
-    // Ensure data directory exists
-    if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir, { recursive: true });
-    }
-
-    // Helper to escape values for CSV to prevent CSV injection and maintain spreadsheet formatting
-    const escapeCsv = (val: string) => {
-      if (!val) return '""';
-      const escaped = val.toString().replace(/"/g, '""');
-      return `"${escaped}"`;
-    };
-
+    const scriptUrl = process.env.GOOGLE_SHEETS_SCRIPT_URL;
     const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
-    const row = `${escapeCsv(timestamp)},${escapeCsv(name)},${escapeCsv(phone)},${escapeCsv(email || "")},${escapeCsv(service)},${escapeCsv(message)}\n`;
 
-    const fileExists = fs.existsSync(filePath);
-    const headers = "Timestamp,Name,Phone,Email,Service,Message\n";
-
-    if (!fileExists) {
-      fs.writeFileSync(filePath, headers + row, "utf8");
-    } else {
-      fs.appendFileSync(filePath, row, "utf8");
+    if (!scriptUrl) {
+      // Developer experience fallback: if the env variable isn't configured, log a warning and simulate success
+      console.warn(
+        "⚠️ GOOGLE_SHEETS_SCRIPT_URL environment variable is not defined. Simulating API success response."
+      );
+      return NextResponse.json({
+        success: true,
+        message: "Enquiry recorded (Development Mock Success). Configure GOOGLE_SHEETS_SCRIPT_URL to send to your live Google Sheet.",
+      });
     }
 
-    return NextResponse.json({ success: true, message: "Enquiry logged successfully." });
+    // Forward the payload to the Google Apps Script Web App
+    const response = await fetch(scriptUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        timestamp,
+        name,
+        phone,
+        email: email || "",
+        service,
+        message,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Google Apps Script responded with status: ${response.status}`);
+    }
+
+    const responseData = await response.json();
+    if (responseData && responseData.success === false) {
+      throw new Error(responseData.error || "Google Apps Script internal execution error.");
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: "Enquiry logged to Google Sheets successfully.",
+    });
   } catch (error: any) {
-    console.error("Error writing to CSV:", error);
+    console.error("Error logging to Google Sheets:", error);
     return NextResponse.json(
-      { error: "Internal server error while saving data." },
+      { error: "Failed to record enquiry to Google Sheet. Please try again later." },
       { status: 500 }
     );
   }
