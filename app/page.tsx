@@ -41,6 +41,8 @@ export default function HomePage() {
   });
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submittedData, setSubmittedData] = useState<typeof formData | null>(null);
 
   // Modal Dialog States & Handlers
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,12 +57,14 @@ export default function HomePage() {
     });
     setFormErrors({});
     setFormSubmitted(false);
+    setSubmittedData(null);
     setIsModalOpen(true);
   };
 
   const closeEnquiryModal = () => {
     setIsModalOpen(false);
     setFormSubmitted(false);
+    setSubmittedData(null);
   };
 
   // Programmatic smooth scroll helper that avoids hashtag in URL
@@ -159,8 +163,22 @@ export default function HomePage() {
     }
   };
 
-  // Enquiry Form validation and redirection
-  const handleFormSubmit = (e: React.FormEvent) => {
+  // Reset form helper
+  const resetForm = () => {
+    setFormSubmitted(false);
+    setSubmittedData(null);
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      service: "",
+      message: "",
+    });
+    setFormErrors({});
+  };
+
+  // Enquiry Form validation and backend submission
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errors: Record<string, string> = {};
 
@@ -179,23 +197,38 @@ export default function HomePage() {
     }
 
     setFormErrors({});
-    setFormSubmitted(true);
+    setIsSubmitting(true);
 
-    // Format WhatsApp pre-filled text message
-    const formattedMessage = `Hello Pashupati Techno Dreams,
-I would like to request a quote/enquiry.
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-*Name:* ${formData.name}
-*Phone:* ${formData.phone}
-*Email:* ${formData.email || "N/A"}
-*Service:* ${formData.service}
-*Message:* ${formData.message}`;
+      if (!response.ok) {
+        throw new Error("Failed to submit enquiry.");
+      }
 
-    const encodedMessage = encodeURIComponent(formattedMessage);
-    const whatsappUrl = `https://wa.me/918136076717?text=${encodedMessage}`;
-
-    // Redirect user to WhatsApp API
-    window.open(whatsappUrl, "_blank");
+      setSubmittedData({ ...formData });
+      setFormSubmitted(true);
+      
+      // Clear inputs for future form entries
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error(err);
+      setFormErrors({ submit: "Failed to record enquiry. Please check your internet connection or try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -275,6 +308,9 @@ I would like to request a quote/enquiry.
           formData={formData}
           formErrors={formErrors}
           formSubmitted={formSubmitted}
+          isSubmitting={isSubmitting}
+          submittedData={submittedData}
+          resetForm={resetForm}
           handleInputChange={handleInputChange}
           handleFormSubmit={handleFormSubmit}
         />
@@ -291,6 +327,9 @@ I would like to request a quote/enquiry.
             formData={formData}
             formErrors={formErrors}
             formSubmitted={formSubmitted}
+            isSubmitting={isSubmitting}
+            submittedData={submittedData}
+            resetForm={resetForm}
             handleInputChange={handleInputChange}
             handleFormSubmit={handleFormSubmit}
           />

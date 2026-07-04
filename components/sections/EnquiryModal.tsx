@@ -15,6 +15,15 @@ export interface EnquiryModalProps {
   };
   formErrors: Record<string, string>;
   formSubmitted: boolean;
+  isSubmitting: boolean;
+  submittedData: {
+    name: string;
+    phone: string;
+    email: string;
+    service: string;
+    message: string;
+  } | null;
+  resetForm: () => void;
   handleInputChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => void;
@@ -26,6 +35,9 @@ export default function EnquiryModal({
   formData,
   formErrors,
   formSubmitted,
+  isSubmitting,
+  submittedData,
+  resetForm,
   handleInputChange,
   handleFormSubmit,
 }: EnquiryModalProps) {
@@ -66,27 +78,51 @@ export default function EnquiryModal({
         </h3>
 
         {formSubmitted ? (
-          <div className="bg-primary-navy/5 border border-primary-navy/20 rounded-xl p-8 text-center space-y-4">
-            <CheckCircle2 className="w-14 h-14 text-accent-amber mx-auto" />
-            <h4 className="font-heading font-extrabold text-primary-navy text-lg">
-              Enquiry Pre-filled!
-            </h4>
-            <p className="text-xs text-body-slate max-w-sm mx-auto leading-relaxed">
-              Redirecting to WhatsApp to send message. If it did not open automatically, please click
-              the button below.
+          <div className="bg-primary-navy/[0.02] border border-primary-navy/10 rounded-xl p-6 text-center space-y-4">
+            <div className="w-12 h-12 bg-accent-amber/10 rounded-full flex items-center justify-center mx-auto border border-accent-amber/20">
+              <CheckCircle2 className="w-8 h-8 text-accent-amber" />
+            </div>
+            <div className="space-y-1">
+              <h4 className="font-heading font-extrabold text-primary-navy text-base">
+                Thank You, {submittedData?.name || "there"}!
+              </h4>
+              <p className="text-[10px] text-accent-amber font-extrabold uppercase tracking-wider">
+                Enquiry Recorded Successfully
+              </p>
+            </div>
+            <p className="text-[11px] text-body-slate max-w-sm mx-auto leading-relaxed">
+              Your details have been saved. For an instant response or to discuss details, click the button below to connect with us on WhatsApp.
             </p>
-            <button
-              onClick={() => {
-                const formattedMessage = `Hello Pashupati Techno Dreams, I would like to request a quote/enquiry. *Name:* ${formData.name} *Phone:* ${formData.phone} *Service:* ${formData.service} *Message:* ${formData.message}`;
-                window.open(
-                  `https://wa.me/918136076717?text=${encodeURIComponent(formattedMessage)}`,
-                  "_blank"
-                );
-              }}
-              className="bg-primary-navy text-white text-xs font-bold px-8 py-3 rounded-lg hover:bg-primary-navy-alt transition shadow-md"
-            >
-              Open WhatsApp Chat
-            </button>
+            
+            <div className="pt-2 flex flex-col gap-2.5">
+              <button
+                onClick={() => {
+                  if (!submittedData) return;
+                  const formattedMessage = `Hello Pashupati Techno Dreams,
+I would like to discuss my enquiry further.
+
+*Name:* ${submittedData.name}
+*Phone:* ${submittedData.phone}
+*Email:* ${submittedData.email || "N/A"}
+*Service:* ${submittedData.service}
+*Message:* ${submittedData.message}`;
+                  window.open(
+                    `https://wa.me/918136076717?text=${encodeURIComponent(formattedMessage)}`,
+                    "_blank"
+                  );
+                }}
+                className="w-full bg-primary-navy hover:bg-primary-navy-alt text-white text-xs font-bold py-3.5 rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center cursor-pointer"
+              >
+                Connect on WhatsApp
+              </button>
+              
+              <button
+                onClick={resetForm}
+                className="w-full bg-white hover:bg-bg-soft text-body-slate text-xs font-bold py-3.5 rounded-lg transition border border-border-grey flex items-center justify-center cursor-pointer"
+              >
+                Submit Another Request
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleFormSubmit} className="space-y-5 text-xs text-left">
@@ -202,12 +238,31 @@ export default function EnquiryModal({
               )}
             </div>
 
+            {formErrors.submit && (
+              <div className="p-3 bg-red-55/10 border border-red-500/20 text-red-550 rounded-lg text-center font-bold mb-2">
+                {formErrors.submit}
+              </div>
+            )}
+
             {/* Submit button */}
             <button
               type="submit"
-              className="w-full bg-primary-navy hover:bg-primary-navy-alt text-white font-extrabold py-3.5 px-6 rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center text-sm"
+              disabled={isSubmitting}
+              className={`w-full text-white font-extrabold py-3.5 px-6 rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center text-sm cursor-pointer ${
+                isSubmitting ? "bg-primary-navy/70 cursor-not-allowed" : "bg-primary-navy hover:bg-primary-navy-alt"
+              }`}
             >
-              Submit & Send via WhatsApp
+              {isSubmitting ? (
+                <div className="flex items-center space-x-2">
+                  <svg className="animate-spin h-4.5 w-4.5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span>Recording...</span>
+                </div>
+              ) : (
+                "Submit Enquiry"
+              )}
             </button>
           </form>
         )}
