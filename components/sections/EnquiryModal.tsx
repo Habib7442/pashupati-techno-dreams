@@ -73,9 +73,6 @@ export default function EnquiryModal({
 
         <h3 className="text-lg font-heading font-extrabold text-headings-ink mb-6 pb-3 border-b border-border-grey flex items-center justify-between">
           <span>Service Enquiry</span>
-          <span className="text-[10px] text-accent-amber font-extrabold uppercase bg-accent-amber/5 px-2.5 py-1 rounded-full tracking-wider">
-            Direct WhatsApp Connect
-          </span>
         </h3>
 
         {formSubmitted ? (
