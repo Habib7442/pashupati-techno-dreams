@@ -75,6 +75,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
       className={cn(
         "h-full antialiased scroll-smooth",
         inter.variable,
@@ -87,7 +88,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-body-slate font-sans antialiased overflow-x-hidden">
+      <body 
+        suppressHydrationWarning
+        className="min-h-full flex flex-col bg-background text-body-slate font-sans antialiased overflow-x-hidden"
+      >
         {children}
       </body>
     </html>
