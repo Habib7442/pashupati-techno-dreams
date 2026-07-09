@@ -74,17 +74,15 @@ export default function Projects() {
   return (
     <section id="projects" className="py-16 lg:py-24 bg-white border-b border-border-grey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-left md:text-center max-w-3xl md:mx-auto mb-16 flex flex-col space-y-4 items-start md:items-center">
-          <div className="inline-flex self-start md:self-center items-center space-x-2 text-accent-amber font-heading font-extrabold text-xs uppercase tracking-widest">
+        <div className="text-left max-w-3xl mb-16 flex flex-col space-y-4 items-start">
+          <div className="inline-flex self-start items-center space-x-2 text-accent-amber font-heading font-extrabold text-xs uppercase tracking-widest">
             <span className="w-6 h-0.5 bg-accent-amber inline-block"></span>
             <span>Our Work & Capabilities</span>
-            <span className="w-6 h-0.5 bg-accent-amber inline-block"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-headings-ink leading-tight tracking-tight">
             Civil Projects & Architectural Models
           </h2>
-          <p className="text-body-slate text-sm sm:text-base leading-relaxed">
+          <p className="text-body-slate text-sm sm:text-base leading-relaxed text-justify">
             Take a look at the types of projects we design, calculate, and survey across the Barak Valley region.
           </p>
         </div>
