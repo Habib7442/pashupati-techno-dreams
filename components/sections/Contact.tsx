@@ -1,5 +1,6 @@
 import React from "react";
 import { MapPin, Phone, Mail, CheckCircle2 } from "lucide-react";
+import BookAppointmentButton from "@/components/ui/BookAppointmentButton";
 
 export interface ContactProps {
   formData: {
@@ -102,6 +103,17 @@ export default function Contact({
                     </a>
                   </span>
                 </div>
+              </div>
+
+              {/* WhatsApp direct scheduling box */}
+              <div className="bg-white border border-border-grey rounded-xl p-5 shadow-sm text-left">
+                <h4 className="text-sm font-extrabold text-headings-ink mb-1">
+                  Need a Direct Appointment?
+                </h4>
+                <p className="text-xs text-body-slate mb-3 leading-relaxed">
+                  Skip the form! Book a direct scheduling consultation with our engineering team instantly.
+                </p>
+                <BookAppointmentButton size="sm" className="w-full" />
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
+import BookAppointmentButton from "@/components/ui/BookAppointmentButton";
 
 export interface HeroProps {
   scrollToSection: (e: React.MouseEvent<HTMLAnchorElement>, id: string) => void;
@@ -147,36 +148,26 @@ export default function Hero({ scrollToSection }: HeroProps) {
 
             {/* Action Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-2"
+              className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-2 items-center sm:items-stretch"
               variants={itemVariants}
             >
               <motion.a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, "contact")}
-                className="bg-primary-navy text-white text-sm font-bold px-8 py-4 rounded shadow-lg hover:bg-primary-navy-alt transition text-center inline-flex items-center justify-center group"
+                className="bg-primary-navy text-white text-sm font-bold px-8 py-4 rounded shadow-lg hover:bg-primary-navy-alt transition text-center inline-flex items-center justify-center group w-full sm:w-auto"
                 whileHover={{ scale: 1.02, translateY: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span>Get Your Free Quote</span>
                 <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
               </motion.a>
-              <motion.a
-                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20would%20like%20to%20book%20an%20appointment%20to%20discuss%20my%20upcoming%20project."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white border border-border-grey text-primary-navy hover:text-primary-navy-alt text-sm font-bold px-8 py-4 rounded shadow hover:bg-bg-soft transition text-center inline-flex items-center justify-center space-x-2"
+              <motion.div
                 whileHover={{ scale: 1.02, translateY: -2 }}
                 whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto flex"
               >
-                <Image
-                  src="/social-icons/whatsapp.png"
-                  alt="WhatsApp"
-                  width={18}
-                  height={18}
-                  className="object-contain"
-                />
-                <span>Book an Appointment</span>
-              </motion.a>
+                <BookAppointmentButton size="lg" className="w-full" />
+              </motion.div>
             </motion.div>
 
             {/* Social Proof Row */}

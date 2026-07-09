@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import BookAppointmentButton from "@/components/ui/BookAppointmentButton";
 import {
   FileText,
   Shield,
@@ -182,7 +183,21 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
               </motion.div>
             );
           })}
-        </motion.div>
+         </motion.div>
+
+        {/* Bottom CTA Banner */}
+        <div className="mt-16 bg-primary-navy rounded-2xl p-8 md:p-12 text-center relative overflow-hidden shadow-xl border border-white/5">
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#FFFFFF_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center space-y-4">
+            <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-white leading-tight">
+              Have a Custom Project in Mind? Let's Build It Together
+            </h3>
+            <p className="text-white/70 text-xs sm:text-sm leading-relaxed max-w-xl">
+              Schedule a direct consultation meeting with our engineers to discuss your construction plans, structural requirements, or government approvals.
+            </p>
+            <BookAppointmentButton size="md" className="mt-4" />
+          </div>
+        </div>
       </div>
     </section>
   );
