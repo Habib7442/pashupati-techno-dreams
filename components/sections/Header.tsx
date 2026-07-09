@@ -159,17 +159,6 @@ export default function Header({
               Team
             </a>
             <a 
-              href="/#reviews" 
-              onClick={(e) => { 
-                if (typeof window !== "undefined" && window.location.pathname === "/") { 
-                  scrollToSection(e, "reviews"); 
-                } 
-              }} 
-              className="text-body-slate hover:text-accent-amber transition"
-            >
-              Reviews
-            </a>
-            <a 
               href="/#contact" 
               onClick={(e) => { 
                 if (typeof window !== "undefined" && window.location.pathname === "/") { 
@@ -180,17 +169,34 @@ export default function Header({
             >
               Contact
             </a>
-            <a
-              href="/#contact"
-              onClick={(e) => { 
-                if (typeof window !== "undefined" && window.location.pathname === "/") { 
-                  scrollToSection(e, "contact"); 
-                } 
-              }}
-              className="bg-primary-navy text-white text-xs px-5 py-2.5 rounded-md hover:bg-primary-navy-alt transition shadow-sm"
-            >
-              Get a Quote
-            </a>
+            <div className="flex items-center space-x-2.5">
+              <a
+                href="/#contact"
+                onClick={(e) => { 
+                  if (typeof window !== "undefined" && window.location.pathname === "/") { 
+                    scrollToSection(e, "contact"); 
+                  } 
+                }}
+                className="bg-primary-navy text-white text-xs px-5 py-2.5 rounded-md hover:bg-primary-navy-alt transition shadow-sm"
+              >
+                Get a Quote
+              </a>
+              <a
+                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20would%20like%20to%20book%20an%20appointment%20to%20discuss%20my%20upcoming%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white border border-border-grey text-primary-navy text-xs px-4 py-2.5 rounded-md hover:bg-bg-soft transition shadow-sm inline-flex items-center space-x-1.5"
+              >
+                <Image
+                  src="/social-icons/whatsapp.png"
+                  alt="WhatsApp"
+                  width={14}
+                  height={14}
+                  className="object-contain"
+                />
+                <span>Book Appointment</span>
+              </a>
+            </div>
           </nav>
 
           {/* Mobile menu button toggle */}
@@ -289,19 +295,7 @@ export default function Header({
               >
                 Our Engineers
               </a>
-              <a
-                href="/#reviews"
-                onClick={(e) => {
-                  if (typeof window !== "undefined" && window.location.pathname === "/") {
-                    handleMobileNavClick(e, "reviews");
-                  } else {
-                    setMobileMenuOpen(false);
-                  }
-                }}
-                className="text-body-slate hover:text-accent-amber py-2 border-b border-border-grey/55"
-              >
-                Testimonials
-              </a>
+
               <a
                 href="/#contact"
                 onClick={(e) => {
@@ -331,6 +325,21 @@ export default function Header({
                 className="flex items-center justify-center bg-primary-navy text-white font-bold py-2.5 rounded-md text-sm"
               >
                 Get a Quote
+              </a>
+              <a
+                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20would%20like%20to%20book%20an%20appointment%20to%20discuss%20my%20upcoming%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center bg-white border border-border-grey text-primary-navy font-bold py-2.5 rounded-md text-sm space-x-2"
+              >
+                <Image
+                  src="/social-icons/whatsapp.png"
+                  alt="WhatsApp"
+                  width={16}
+                  height={16}
+                  className="object-contain"
+                />
+                <span>Book Appointment</span>
               </a>
             </div>
           </div>

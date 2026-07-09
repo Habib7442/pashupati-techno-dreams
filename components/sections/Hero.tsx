@@ -161,7 +161,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                 <span className="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
               </motion.a>
               <motion.a
-                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20would%20like%20to%20enquire%20about%20your%20engineering%20services."
+                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20would%20like%20to%20book%20an%20appointment%20to%20discuss%20my%20upcoming%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white border border-border-grey text-primary-navy hover:text-primary-navy-alt text-sm font-bold px-8 py-4 rounded shadow hover:bg-bg-soft transition text-center inline-flex items-center justify-center space-x-2"
@@ -175,7 +175,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                   height={18}
                   className="object-contain"
                 />
-                <span>Chat on WhatsApp</span>
+                <span>Book an Appointment</span>
               </motion.a>
             </motion.div>
 
