@@ -278,7 +278,7 @@ export default function Reviews() {
         <div className="relative mb-12">
           <motion.div 
             ref={scrollRef}
-            className="flex flex-row overflow-x-auto gap-6 pb-6 snap-x snap-mandatory custom-scrollbar -mx-4 px-6 sm:-mx-6 sm:px-12 lg:-mx-8 lg:px-16 scroll-pl-6 sm:scroll-pl-12 lg:scroll-pl-16"
+            className="flex flex-row overflow-x-auto gap-6 pb-6 snap-x snap-mandatory custom-scrollbar -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 scroll-pl-4 sm:scroll-pl-6 lg:scroll-pl-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

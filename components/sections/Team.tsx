@@ -137,7 +137,7 @@ export default function Team() {
         </div>
         
         {/* Team Cards (3-up Grid) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <TeamMemberCard key={index} member={member} index={index} />
           ))}
