@@ -33,7 +33,7 @@ export default function Stats({ yearsCount, reviewsCount, ratingCount }: StatsPr
             <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white leading-tight tracking-tight">
               Delivering Structural Safety & Design Innovation Since 2020
             </h2>
-            <p className="text-white/80 leading-relaxed text-sm sm:text-base">
+            <p className="text-white/80 leading-relaxed text-sm sm:text-base text-justify">
               We combine technical expertise, rigorous calculations, and regional experience to deliver
               projects that are safe, Vastu-friendly, and cost-effective. Holding PWD registrations, Chartered Status,
               and RTP licenses, we ensure your building complies with local laws and standard regulations.
