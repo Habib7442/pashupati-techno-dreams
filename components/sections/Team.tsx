@@ -16,6 +16,13 @@ interface TeamMember {
 
 function TeamMemberCard({ member, index }: { member: TeamMember; index: number }) {
   const [imageError, setImageError] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const maxChars = 160;
+  const shouldTruncate = member.bio.length > maxChars;
+  const displayedBio = (shouldTruncate && !isExpanded)
+    ? member.bio.substring(0, maxChars) + "..."
+    : member.bio;
 
   return (
     <motion.div 
@@ -56,9 +63,19 @@ function TeamMemberCard({ member, index }: { member: TeamMember; index: number }
       </div>
       
       {/* Description */}
-      <p className="text-xs text-body-slate leading-relaxed flex-grow">
-        {member.bio}
-      </p>
+      <div className="flex flex-col flex-grow">
+        <p className="text-xs text-body-slate leading-relaxed">
+          {displayedBio}
+        </p>
+        {shouldTruncate && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-accent-amber hover:text-primary-navy text-[11px] font-extrabold transition mt-1.5 flex items-center cursor-pointer focus:outline-none self-start"
+          >
+            {isExpanded ? "Read Less" : "Read More"}
+          </button>
+        )}
+      </div>
       
       {/* Badges */}
       <div className="flex flex-wrap gap-1.5 pt-2 border-t border-border-grey/60">
