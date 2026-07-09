@@ -72,15 +72,13 @@ export default function About() {
               A House of Skilled Engineers in Silchar
             </h2>
             <p className="text-body-slate leading-relaxed text-sm sm:text-base">
-              Pashupati Techno Dreams started operations in 2020 and established its professional central office
-              in the Town Club Complex, Silchar, in September 2021. Led by certified engineers with decades of
-              industry experience, our firm delivers quality civil engineering design, surveying, and construction solutions.
+              Established in 2020, Pashupati Techno Dreams has grown into a trusted multidisciplinary construction consultancy, operating from its corporate office at Town Club Complex, Silchar, since September 2021. Guided by a leadership team with over 30 years of combined professional experience in civil engineering, construction consultancy, infrastructure development, and project management, we are committed to delivering engineering solutions that meet the highest standards of quality, safety, and innovation.
             </p>
             <p className="text-body-slate leading-relaxed text-sm sm:text-base">
-              We believe in structural integrity, economic feasibility, and aesthetic beauty.
-              Whether we are drawing a 2D floor plan for an individual client, calculating high-grade structural designs,
-              conducting topographical surveys with advanced Total Station, or planning highway bridges for Assam's road networks,
-              our focus remains on transparency, reliability, and precision.
+              Our expertise spans civil and structural engineering, architectural and Vastu-compliant planning, precision land surveying, project management, and infrastructure design. From residential and commercial developments to institutional buildings, highways, and bridge engineering, every project is executed with meticulous technical precision and unwavering professional integrity.
+            </p>
+            <p className="text-body-slate leading-relaxed text-sm sm:text-base">
+              At Pashupati Techno Dreams, we believe that successful engineering is built on three core principles—structural excellence, economic efficiency, and architectural elegance. Whether preparing detailed architectural plans, designing resilient structures, conducting high-precision topographical and cadastral surveys using advanced Total Station and drone technology, or delivering infrastructure solutions for public and private sector projects, our commitment remains the same: transparency, reliability, innovation, and engineering excellence.
             </p>
 
             {/* Bullet points list */}

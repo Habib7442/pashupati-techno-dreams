@@ -114,7 +114,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
               className="text-base sm:text-lg text-body-slate max-w-xl leading-relaxed"
               variants={itemVariants}
             >
-              Professional architectural planning, structural safety engineering, land surveying, and highway/bridge infrastructure solutions built for both residential and institutional projects.
+              Your trusted partner in engineering and construction consultancy, offering integrated civil and structural engineering, architectural and Vastu-compliant planning, precision land surveying, and highway and bridge infrastructure design. We combine technical excellence, innovation, and regulatory compliance to deliver resilient, sustainable, and value-driven solutions across the built environment.
             </motion.p>
 
             {/* Bullet Points with Checkmarks */}
@@ -124,7 +124,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                   <Check className="w-3.5 h-3.5 stroke-[3]" />
                 </div>
                 <span className="text-sm sm:text-base font-bold text-headings-ink">
-                  Registered Technical Personnel & Silchar Municipal Approved
+                  A House of Chartered Engineers
                 </span>
               </motion.div>
               <motion.div className="flex items-center space-x-3" variants={checkVariants}>
@@ -132,7 +132,15 @@ export default function Hero({ scrollToSection }: HeroProps) {
                   <Check className="w-3.5 h-3.5 stroke-[3]" />
                 </div>
                 <span className="text-sm sm:text-base font-bold text-headings-ink">
-                  Chartered Engineers (IEI) & Govt. PWD Class I Contractors
+                  Empanelled with the Government of Assam
+                </span>
+              </motion.div>
+              <motion.div className="flex items-center space-x-3" variants={checkVariants}>
+                <div className="bg-accent-amber/10 text-accent-amber p-1 rounded-full">
+                  <Check className="w-3.5 h-3.5 stroke-[3]" />
+                </div>
+                <span className="text-sm sm:text-base font-bold text-headings-ink">
+                  Empanelled with Government of India Organizations
                 </span>
               </motion.div>
             </motion.div>

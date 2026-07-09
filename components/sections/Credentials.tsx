@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Award, Shield, Home, Sun } from "lucide-react";
+import { Award, Shield, Home, Sun, Calculator } from "lucide-react";
 import { motion } from "framer-motion";
 
 const containerVariants = {
@@ -44,7 +44,7 @@ export default function Credentials() {
             </div>
             <div>
               <h3 className="text-sm font-extrabold text-headings-ink transition-colors duration-300 group-hover:text-primary-navy">Chartered Engineers</h3>
-              <p className="text-xs text-body-slate mt-1 leading-relaxed">Certified by the Institution of Engineers, India.</p>
+              <p className="text-xs text-body-slate mt-1 leading-relaxed">Certified by The Institution of Engineers(India) under the Royal Charter UK.</p>
             </div>
           </motion.div>
 
@@ -54,11 +54,11 @@ export default function Credentials() {
             variants={cardVariants}
           >
             <div className="text-accent-amber p-2.5 bg-white rounded-lg shadow-sm border border-border-grey/50 transition-colors duration-300 group-hover:bg-primary-navy group-hover:text-white">
-              <Shield className="w-6 h-6 transition-transform duration-500 group-hover:scale-110" />
+              <Sun className="w-6 h-6 transition-transform duration-500 group-hover:scale-110" />
             </div>
             <div>
-              <h3 className="text-sm font-extrabold text-headings-ink transition-colors duration-300 group-hover:text-primary-navy">PWD Class I Contractor</h3>
-              <p className="text-xs text-body-slate mt-1 leading-relaxed">Registered Class I Contractor with PWD Assam.</p>
+              <h3 className="text-sm font-extrabold text-headings-ink transition-colors duration-300 group-hover:text-primary-navy">Vastu-Compliant Design</h3>
+              <p className="text-xs text-body-slate mt-1 leading-relaxed">The old traditional rule of wellbeing of a family, the rule of energy.</p>
             </div>
           </motion.div>
 
@@ -71,8 +71,8 @@ export default function Credentials() {
               <Home className="w-6 h-6 transition-transform duration-500 group-hover:scale-110" />
             </div>
             <div>
-              <h3 className="text-sm font-extrabold text-headings-ink transition-colors duration-300 group-hover:text-primary-navy">Municipal Registered</h3>
-              <p className="text-xs text-body-slate mt-1 leading-relaxed">RTP with Silchar Municipality & Development Authority.</p>
+              <h3 className="text-sm font-extrabold text-headings-ink transition-colors duration-300 group-hover:text-primary-navy">Municipal Approval</h3>
+              <p className="text-xs text-body-slate mt-1 leading-relaxed">Get approval drawing of all Municipal Board/Corporation and Development Authorities Across Assam.</p>
             </div>
           </motion.div>
 
@@ -82,11 +82,11 @@ export default function Credentials() {
             variants={cardVariants}
           >
             <div className="text-accent-amber p-2.5 bg-white rounded-lg shadow-sm border border-border-grey/50 transition-colors duration-300 group-hover:bg-primary-navy group-hover:text-white">
-              <Sun className="w-6 h-6 transition-transform duration-500 group-hover:scale-110" />
+              <Calculator className="w-6 h-6 transition-transform duration-500 group-hover:scale-110" />
             </div>
             <div>
-              <h3 className="text-sm font-extrabold text-headings-ink transition-colors duration-300 group-hover:text-primary-navy">Vastu-Compliant Design</h3>
-              <p className="text-xs text-body-slate mt-1 leading-relaxed">Traditional spatial design elements woven with engineering.</p>
+              <h3 className="text-sm font-extrabold text-headings-ink transition-colors duration-300 group-hover:text-primary-navy">Estimate for Construction</h3>
+              <p className="text-xs text-body-slate mt-1 leading-relaxed">Get your estimate of construction before you start for a better planning.</p>
             </div>
           </motion.div>
         </motion.div>

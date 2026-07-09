@@ -97,8 +97,8 @@ export default function Contact({
                 <div>
                   <strong className="block text-sm text-headings-ink">Email Address</strong>
                   <span className="text-xs text-body-slate mt-1">
-                    <a href="mailto:pranjal.erpn@gmail.com" className="hover:text-accent-amber font-semibold transition">
-                      pranjal.erpn@gmail.com
+                    <a href="mailto:pashupatitechnodreams@gmail.com" className="hover:text-accent-amber font-semibold transition">
+                      pashupatitechnodreams@gmail.com
                     </a>
                   </span>
                 </div>
@@ -239,14 +239,15 @@ I would like to discuss my enquiry further.
                       }`}
                     >
                       <option value="">-- Choose Option --</option>
-                      <option value="AutoCAD Drawings">2D/3D AutoCAD Drawings</option>
-                      <option value="Structural Design">Structural Engineering Design</option>
-                      <option value="Building Planning & Construction">Planning & Construction</option>
-                      <option value="Bridge & Highway Engineering">Road/Bridge Engineering</option>
-                      <option value="Land Surveying">Total Station Land Surveying</option>
-                      <option value="Vastu-Compliant Planning">Vastu Shastra Planning</option>
-                      <option value="Interior Design">Interior 3D Design</option>
-                      <option value="Estimation & Valuation">Estimation & BOQ Valuation</option>
+                      <option value="Architectural Planning & Design">Architectural Planning & Design</option>
+                      <option value="Structural Engineering & Design">Structural Engineering & Design</option>
+                      <option value="Construction Planning & Project Management">Construction Planning & Project Management</option>
+                      <option value="Vastu-Compliant Architectural Planning">Vastu-Compliant Architectural Planning</option>
+                      <option value="3D Architectural Visualization">3D Architectural Visualization</option>
+                      <option value="Instant Residential Building Approval">Instant Residential Building Approval (MMSGNA)</option>
+                      <option value="Building Permit & Statutory Approval Drawings">Building Permit & Statutory Approval Drawings</option>
+                      <option value="Estimate & Property Valuation">Estimate & Property Valuation</option>
+                      <option value="Land Surveying, GIS Mapping & DPR Preparation">Land Surveying, GIS Mapping & DPR</option>
                     </select>
                     {formErrors.service && (
                       <span className="text-[10px] text-red-550 block mt-1">{formErrors.service}</span>

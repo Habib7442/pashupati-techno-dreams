@@ -59,12 +59,12 @@ export default function Footer({ scrollToTop, scrollToSection }: FooterProps) {
             <h4 className="text-white font-bold uppercase tracking-wider text-sm border-b border-white/10 pb-2 mb-1">
               Engineering Services
             </h4>
-            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">AutoCAD Blueprints</a>
-            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">RCC Structural Design</a>
-            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Total Station Surveying</a>
-            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Vastu spatial layouts</a>
-            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Bridge & Road planning</a>
-            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Interior 3D Rendering</a>
+            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Architectural Design</a>
+            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Structural Engineering</a>
+            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Project Management</a>
+            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Vastu House Planning</a>
+            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Municipal Approval Drawings</a>
+            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-accent-amber transition">Land Surveying & GIS</a>
           </div>
 
           {/* Column 4: Contact/Socials */}
@@ -76,6 +76,10 @@ export default function Footer({ scrollToTop, scrollToSection }: FooterProps) {
               Room No. 26 (First Floor), Town Club Complex,<br />
               PWD Road, Silchar-1, Assam 788001, India
             </p>
+            <div className="text-[11px] space-y-1 text-white/60">
+              <p>Primary: <a href="tel:+919706609966" className="text-white hover:text-accent-amber font-semibold transition">+91 97066 09966</a></p>
+              <p>Email: <a href="mailto:pashupatitechnodreams@gmail.com" className="text-white hover:text-accent-amber transition">pashupatitechnodreams@gmail.com</a></p>
+            </div>
             <div className="flex items-center space-x-2">
               <a
                 href="https://www.instagram.com/dreams_p_techno"

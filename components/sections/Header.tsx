@@ -27,14 +27,14 @@ export default function Header({
           <div className="flex items-center space-x-8">
             <span className="flex items-center">
               <Phone className="w-3.5 h-3.5 mr-2 text-accent-amber" />
-              <a href="tel:+918136076717" className="text-white hover:text-accent-amber font-semibold transition">
-                +91 81360 76717
+              <a href="tel:+919706609966" className="text-white hover:text-accent-amber font-semibold transition">
+                +91 97066 09966
               </a>
             </span>
             <span className="flex items-center">
               <Mail className="w-3.5 h-3.5 mr-2 text-accent-amber" />
-              <a href="mailto:pranjal.erpn@gmail.com" className="hover:text-accent-amber transition">
-                pranjal.erpn@gmail.com
+              <a href="mailto:pashupatitechnodreams@gmail.com" className="hover:text-accent-amber transition">
+                pashupatitechnodreams@gmail.com
               </a>
             </span>
             <span className="flex items-center text-white/70">
@@ -313,7 +313,7 @@ export default function Header({
             </nav>
             <div className="pt-6 border-t border-border-grey mt-auto flex flex-col space-y-3">
               <a
-                href="tel:+918136076717"
+                href="tel:+919706609966"
                 className="flex items-center justify-center bg-secondary-steel/10 text-secondary-steel font-bold py-2.5 rounded-md text-sm"
               >
                 <Phone className="w-4 h-4 mr-2" />
