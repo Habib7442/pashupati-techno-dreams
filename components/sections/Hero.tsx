@@ -107,8 +107,8 @@ export default function Hero({ scrollToSection }: HeroProps) {
               className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold font-heading text-headings-ink leading-tight tracking-tight"
               variants={itemVariants}
             >
-              Stronger Structures.<br />
-              <span className="text-accent-amber">Safer Homes.</span>
+              Pashupati<br />
+              <span className="text-accent-amber">Techno Dreams.</span>
             </motion.h1>
             
             <motion.p 

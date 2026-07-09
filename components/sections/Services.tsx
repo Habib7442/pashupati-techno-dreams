@@ -94,7 +94,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
     },
     {
       title: "Estimate & Property Valuation",
-      desc: "Detailed quantity estimates, cost analysis, BOQs, DPR support, and valuation services.",
+      desc: "Detailed quantity estimates, cost analysis, BOQs, and valuation services.",
       img: "/hero_blueprint.png",
       icon: Calculator,
       key: "Estimate & Valuation",

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
+import BookAppointmentButton from "@/components/ui/BookAppointmentButton";
 
 // Section Components
 import Header from "@/components/sections/Header";
@@ -283,22 +284,15 @@ export default function HomePage() {
               Get in touch with Silchar's experienced chartered engineers. Let us design a compliant, safe,
               and optimized structure.
             </p>
-            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 w-full sm:w-auto items-center sm:items-stretch">
               <a
                 href="tel:+919706609966"
-                className="bg-accent-amber text-primary-navy font-bold px-8 py-3.5 rounded hover:bg-white transition text-sm flex items-center justify-center font-heading w-full sm:w-auto"
+                className="bg-transparent hover:bg-white/10 text-white border border-white/30 font-bold px-8 py-3.5 rounded transition text-sm flex items-center justify-center font-heading w-full sm:w-auto"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call +91 97066 09966
               </a>
-              <a
-                href="https://wa.me/918136076717?text=Hello%20Pashupati%20Techno%20Dreams%2C%20I%20would%20like%20to%20enquire%20about%20planning%20my%20building%20project."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-3.5 rounded transition text-sm flex items-center justify-center border border-white/20 w-full sm:w-auto"
-              >
-                WhatsApp Assistant
-              </a>
+              <BookAppointmentButton size="md" className="w-full sm:w-auto" />
             </div>
           </div>
         </section>

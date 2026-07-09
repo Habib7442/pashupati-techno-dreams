@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { X, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -111,9 +112,16 @@ I would like to discuss my enquiry further.
                     "_blank"
                   );
                 }}
-                className="w-full bg-primary-navy hover:bg-primary-navy-alt text-white text-xs font-bold py-3.5 rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center cursor-pointer"
+                className="w-full bg-accent-amber hover:bg-[#d9970f] text-primary-navy text-xs font-bold py-3.5 rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center space-x-2 cursor-pointer"
               >
-                Connect on WhatsApp
+                <Image
+                  src="/social-icons/whatsapp.png"
+                  alt="WhatsApp"
+                  width={14}
+                  height={14}
+                  className="object-contain"
+                />
+                <span>Book an Appointment</span>
               </button>
               
               <button

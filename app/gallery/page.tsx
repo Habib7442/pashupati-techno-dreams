@@ -34,6 +34,18 @@ const itemVariants = {
 } as const;
 
 export default function GalleryPage() {
+  const getImageClasses = (path: string, isLightbox = false) => {
+    const isRotated = path.includes("20220103_150458");
+    if (isRotated) {
+      return isLightbox 
+        ? "object-contain rotate-90 scale-[0.75] md:scale-[0.7]" 
+        : "object-contain rotate-90 scale-[0.75] transition-all duration-500 group-hover:scale-[0.8]";
+    }
+    return isLightbox
+      ? "object-contain"
+      : "object-cover group-hover:scale-105 transition-all duration-500";
+  };
+
   // Header state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -145,13 +157,13 @@ export default function GalleryPage() {
                 onClick={() => setSelectedIdx(index)}
                 className="group bg-white rounded-xl overflow-hidden border border-border-grey shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col cursor-pointer"
               >
-                <div className="overflow-hidden aspect-4/3 relative bg-border-grey">
+                <div className="overflow-hidden aspect-4/3 relative bg-neutral-900 flex items-center justify-center">
                   <Image
                     src={imagePath}
                     alt={`Project Gallery Image ${index + 1}`}
                     fill
-                    className="object-cover group-hover:scale-105 transition-all duration-500"
-                    sizes="(max-w-768px) 100vw, (max-w-1200px) 33vw, 25vw"
+                    className={getImageClasses(imagePath)}
+                    sizes="(max-width-768px) 100vw, (max-w-1200px) 33vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-primary-navy/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <span className="bg-white/95 text-primary-navy text-xs font-bold px-4 py-2.5 rounded shadow-lg uppercase tracking-wider scale-95 group-hover:scale-100 transition-all duration-300">
@@ -205,12 +217,12 @@ export default function GalleryPage() {
               className="relative max-w-5xl max-h-[80vh] w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative w-full h-full max-h-[75vh] aspect-4/3">
+              <div className="relative w-full h-full max-h-[75vh] aspect-4/3 flex items-center justify-center">
                 <Image
                   src={galleryImages[selectedIdx]}
                   alt={`Expanded Gallery Image ${selectedIdx + 1}`}
                   fill
-                  className="object-contain"
+                  className={getImageClasses(galleryImages[selectedIdx], true)}
                   sizes="100vw"
                   priority
                 />

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { MapPin, Phone, Mail, CheckCircle2 } from "lucide-react";
 import BookAppointmentButton from "@/components/ui/BookAppointmentButton";
 
@@ -160,9 +161,16 @@ I would like to discuss my enquiry further.
 *Message:* ${submittedData.message}`;
                       window.open(`https://wa.me/918136076717?text=${encodeURIComponent(formattedMessage)}`, "_blank");
                     }}
-                    className="w-full sm:w-auto bg-primary-navy hover:bg-primary-navy-alt text-white text-xs font-bold px-8 py-3.5 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 border border-primary-navy/20 cursor-pointer"
+                    className="w-full sm:w-auto bg-accent-amber hover:bg-[#d9970f] text-primary-navy text-xs font-bold px-8 py-3.5 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 border border-transparent cursor-pointer"
                   >
-                    <span>Connect on WhatsApp</span>
+                    <Image
+                      src="/social-icons/whatsapp.png"
+                      alt="WhatsApp"
+                      width={14}
+                      height={14}
+                      className="object-contain"
+                    />
+                    <span>Book an Appointment</span>
                   </button>
 
                   <button

@@ -4,17 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.95, y: 15 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 100, damping: 15 },
-  },
-} as const;
+import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
 // The 15 optimized WebP gallery images
 export const galleryImages = [
@@ -36,10 +26,19 @@ export const galleryImages = [
 ] as const;
 
 export default function Projects() {
+  const [activeIdx, setActiveIdx] = useState(0);
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
-  // Show first 8 images on the homepage Projects section
-  const homepageImages = galleryImages.slice(0, 8);
+  // Show top 10 images on the homepage Projects section
+  const homepageImages = galleryImages.slice(0, 10);
+
+  const nextSlide = () => {
+    setActiveIdx((prev) => (prev < homepageImages.length - 1 ? prev + 1 : 0));
+  };
+
+  const prevSlide = () => {
+    setActiveIdx((prev) => (prev > 0 ? prev - 1 : homepageImages.length - 1));
+  };
 
   // Lock body scroll when lightbox is open
   useEffect(() => {
@@ -51,6 +50,20 @@ export default function Projects() {
     return () => {
       document.body.style.overflow = "";
     };
+  }, [selectedIdx]);
+
+  // Keyboard navigation for active slide
+  useEffect(() => {
+    if (selectedIdx !== null) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        nextSlide();
+      } else if (e.key === "ArrowLeft") {
+        prevSlide();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIdx]);
 
   // Keyboard navigation for homepage lightbox
@@ -71,6 +84,18 @@ export default function Projects() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedIdx, homepageImages.length]);
 
+  const getImageClasses = (path: string, isLightbox = false) => {
+    const isRotated = path.includes("20220103_150458");
+    if (isRotated) {
+      return isLightbox 
+        ? "object-contain rotate-90 scale-[0.75] md:scale-[0.7]" 
+        : "object-contain rotate-90 scale-[0.75] transition-all duration-500 group-hover:scale-[0.8]";
+    }
+    return isLightbox
+      ? "object-contain"
+      : "object-cover group-hover:scale-105 transition-all duration-500";
+  };
+
   return (
     <section id="projects" className="py-16 lg:py-24 bg-white border-b border-border-grey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,38 +112,89 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Image Grid - 4 Columns on desktop, no filters, no text overlays */}
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ staggerChildren: 0.05 }}
-        >
-          {homepageImages.map((imagePath, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              onClick={() => setSelectedIdx(index)}
-              className="group bg-white rounded-xl overflow-hidden border border-border-grey hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
+        {/* Main Big Carousel wrapper - Clean Full Width of parent container */}
+        <div className="relative w-full mb-12">
+
+          {/* Primary Card Frame */}
+          <div className="relative aspect-[16/10] md:aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-2xl border border-border-grey bg-neutral-900 group flex items-center justify-center z-20">
+            
+            {/* Left Control Arrow */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                prevSlide();
+              }}
+              className="absolute left-4 p-2 rounded-full bg-white/95 hover:bg-white text-primary-navy hover:scale-105 transition cursor-pointer z-30 shadow-md border border-border-grey/55"
+              aria-label="Previous Image"
             >
-              <div className="overflow-hidden aspect-4/3 relative bg-border-grey">
-                <Image
-                  src={imagePath}
-                  alt={`Project Gallery ${index + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-all duration-500"
-                  sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-primary-navy/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="bg-white/95 text-primary-navy text-xs font-bold px-4 py-2.5 rounded shadow-lg uppercase tracking-wider scale-95 group-hover:scale-100 transition-all duration-300">
-                    Expand View
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              <ChevronLeft className="w-4 h-4 sm:w-5 h-5" />
+            </button>
+
+            {/* Slide Image Wrapper */}
+            <div 
+              onClick={() => setSelectedIdx(activeIdx)}
+              className="relative w-full h-full cursor-pointer overflow-hidden flex items-center justify-center z-20"
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIdx}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative w-full h-full flex items-center justify-center bg-neutral-900"
+                >
+                  <Image
+                    src={homepageImages[activeIdx]}
+                    alt={`Project Gallery ${activeIdx + 1}`}
+                    fill
+                    className={getImageClasses(homepageImages[activeIdx])}
+                    sizes="(max-width: 768px) 100vw, 1200px"
+                    priority
+                  />
+                  {/* Glassmorphic hover overlay */}
+                  <div className="absolute inset-0 bg-primary-navy/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="bg-white/95 text-primary-navy text-xs font-bold px-5 py-3 rounded-lg shadow-lg uppercase tracking-wider scale-95 group-hover:scale-100 transition-all duration-300 inline-flex items-center space-x-2">
+                      <Maximize2 className="w-4 h-4" />
+                      <span>Expand Project View</span>
+                    </span>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Right Control Arrow */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                nextSlide();
+              }}
+              className="absolute right-4 p-2 rounded-full bg-white/95 hover:bg-white text-primary-navy hover:scale-105 transition cursor-pointer z-30 shadow-md border border-border-grey/55"
+              aria-label="Next Image"
+            >
+              <ChevronRight className="w-4 h-4 sm:w-5 h-5" />
+            </button>
+
+            {/* Slide Counter Overlay */}
+            <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur text-white text-[10px] font-bold px-3 py-1.5 rounded z-30">
+              {activeIdx + 1} / {homepageImages.length}
+            </div>
+          </div>
+
+          {/* Pagination dots below carousel */}
+          <div className="flex justify-center space-x-2.5 mt-6">
+            {homepageImages.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveIdx(idx)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
+                  idx === activeIdx ? "bg-accent-amber w-6" : "bg-border-grey hover:bg-accent-amber/55"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
 
         {/* Show All CTA Button linking to separate /gallery route */}
         <div className="text-center mt-10">
@@ -171,12 +247,12 @@ export default function Projects() {
               className="relative max-w-5xl max-h-[80vh] w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative w-full h-full max-h-[75vh] aspect-4/3">
+              <div className="relative w-full h-full max-h-[75vh] aspect-4/3 flex items-center justify-center">
                 <Image
                   src={homepageImages[selectedIdx]}
                   alt={`Expanded Gallery Image ${selectedIdx + 1}`}
                   fill
-                  className="object-contain"
+                  className={getImageClasses(homepageImages[selectedIdx], true)}
                   sizes="100vw"
                   priority
                 />

@@ -50,9 +50,6 @@ function TeamMemberCard({ member, index }: { member: TeamMember; index: number }
           )}
         </div>
         <div>
-          <span className="text-[9px] font-extrabold text-accent-amber uppercase tracking-wider block leading-none mb-1">
-            {member.role}
-          </span>
           <h3 className="text-base font-extrabold text-headings-ink transition-colors duration-300 group-hover:text-primary-navy">
             {member.name}
           </h3>
