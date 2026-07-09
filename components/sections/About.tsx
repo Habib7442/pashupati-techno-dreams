@@ -71,13 +71,13 @@ export default function About() {
             <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-headings-ink leading-tight tracking-tight">
               A House of Skilled Engineers in Silchar
             </h2>
-            <p className="text-body-slate leading-relaxed text-sm sm:text-base">
+            <p className="text-body-slate leading-relaxed text-sm sm:text-base text-justify">
               Established in 2020, Pashupati Techno Dreams has grown into a trusted multidisciplinary construction consultancy, operating from its corporate office at Town Club Complex, Silchar, since September 2021. Guided by a leadership team with over 30 years of combined professional experience in civil engineering, construction consultancy, infrastructure development, and project management, we are committed to delivering engineering solutions that meet the highest standards of quality, safety, and innovation.
             </p>
-            <p className="text-body-slate leading-relaxed text-sm sm:text-base">
+            <p className="text-body-slate leading-relaxed text-sm sm:text-base text-justify">
               Our expertise spans civil and structural engineering, architectural and Vastu-compliant planning, precision land surveying, project management, and infrastructure design. From residential and commercial developments to institutional buildings, highways, and bridge engineering, every project is executed with meticulous technical precision and unwavering professional integrity.
             </p>
-            <p className="text-body-slate leading-relaxed text-sm sm:text-base">
+            <p className="text-body-slate leading-relaxed text-sm sm:text-base text-justify">
               At Pashupati Techno Dreams, we believe that successful engineering is built on three core principles—structural excellence, economic efficiency, and architectural elegance. Whether preparing detailed architectural plans, designing resilient structures, conducting high-precision topographical and cadastral surveys using advanced Total Station and drone technology, or delivering infrastructure solutions for public and private sector projects, our commitment remains the same: transparency, reliability, innovation, and engineering excellence.
             </p>
 

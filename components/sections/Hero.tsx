@@ -111,7 +111,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
             </motion.h1>
             
             <motion.p 
-              className="text-base sm:text-lg text-body-slate max-w-xl leading-relaxed"
+              className="text-base sm:text-lg text-body-slate max-w-xl leading-relaxed text-justify"
               variants={itemVariants}
             >
               Your trusted partner in engineering and construction consultancy, offering integrated civil and structural engineering, architectural and Vastu-compliant planning, precision land surveying, and highway and bridge infrastructure design. We combine technical excellence, innovation, and regulatory compliance to deliver resilient, sustainable, and value-driven solutions across the built environment.

@@ -79,7 +79,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
     {
       title: "Instant Residential Building Approval",
       desc: "Preparation and submission of drawings under MMSGNA for Residential upto G+2 building with instant approval.",
-      img: "/indian_rcc_house.png",
+      img: "/indian_rcc_house_service.png",
       icon: Award,
       key: "Instant Building Approval",
       featured: true,
@@ -120,7 +120,7 @@ export default function Services({ openEnquiryModal }: ServicesProps) {
           <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-headings-ink">
             Our Professional Engineering Services
           </h2>
-          <p className="text-body-slate text-xs sm:text-sm leading-relaxed max-w-3xl">
+          <p className="text-body-slate text-xs sm:text-sm leading-relaxed max-w-3xl text-justify">
             We provide comprehensive engineering and construction consultancy services, delivering integrated solutions from concept to completion. Our multidisciplinary expertise encompasses architectural and Vastu-compliant planning, civil and structural engineering, precision land surveying, geospatial mapping, project management, transportation infrastructure design, and construction advisory. Every assignment is executed with technical excellence, regulatory compliance, innovation, and a commitment to delivering safe, sustainable, and cost-effective solutions.
           </p>
         </div>

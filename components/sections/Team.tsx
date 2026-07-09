@@ -62,9 +62,8 @@ function TeamMemberCard({ member, index }: { member: TeamMember; index: number }
         </div>
       </div>
       
-      {/* Description */}
       <div className="flex flex-col flex-grow">
-        <p className="text-xs text-body-slate leading-relaxed">
+        <p className="text-xs text-body-slate leading-relaxed text-justify">
           {displayedBio}
         </p>
         {shouldTruncate && (
@@ -133,7 +132,7 @@ export default function Team() {
           <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-headings-ink leading-tight tracking-tight">
             Meet Our Core Team of Engineers
           </h2>
-          <p className="text-body-slate text-sm sm:text-base leading-relaxed">
+          <p className="text-body-slate text-sm sm:text-base leading-relaxed text-justify">
             Our firm is led by senior retired government engineers and structural design experts, bringing over 90 years of cumulative engineering experience to your projects.
           </p>
         </div>

@@ -49,7 +49,7 @@ export default function Contact({
               <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-headings-ink mt-1 leading-tight tracking-tight">
                 Get in Touch
               </h2>
-              <p className="text-xs text-body-slate mt-2 leading-relaxed">
+              <p className="text-xs text-body-slate mt-2 leading-relaxed text-justify">
                 Visit our office, give us a call, or fill out the enquiry form. We will respond promptly.
               </p>
             </div>
