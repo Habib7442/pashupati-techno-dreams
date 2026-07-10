@@ -108,7 +108,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
               variants={itemVariants}
             >
               Pashupati<br />
-              <span className="text-accent-amber">Techno Dreams.</span>
+              <span className="text-accent-amber">Techno Dreams</span>
             </motion.h1>
             
             <motion.p 
