@@ -100,7 +100,7 @@ export default function Team() {
       name: "Er. Subrata Paul",
       role: "Senior Road & Highway Consultant",
       subTitle: "Retd. Assistant Executive Engineer, PWRD, Govt of Assam",
-      image: "/teams/Er. Subrata Paul.avif",
+      image: "/teams/Er. Subrata Paul.png",
       bio: "With more than 30+ years of professional experience in highway engineering, road construction, and building infrastructure, Er. Paul possesses extensive knowledge in planning, execution, contract management, and quality control of public infrastructure projects. His practical field expertise ensures efficient and technically sound project delivery.",
       badges: ["Retd. AEE PWRD", "Highway Specialist", "Contract Mgr", "30+ Yrs Exp"],
       initials: "SP",

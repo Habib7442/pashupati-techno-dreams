@@ -78,7 +78,8 @@ export default function Footer({ scrollToTop, scrollToSection }: FooterProps) {
             </p>
             <div className="text-[11px] space-y-1 text-white/60">
               <p>Primary: <a href="tel:+919706609966" className="text-white hover:text-accent-amber font-semibold transition">+91 97066 09966</a></p>
-              <p>Email: <a href="mailto:pashupatitechnodreams@gmail.com" className="text-white hover:text-accent-amber transition">pashupatitechnodreams@gmail.com</a></p>
+              <p>Email: <a href="mailto:info@pashupatitechno.in" className="text-accent-amber hover:text-white font-semibold transition">info@pashupatitechno.in</a></p>
+              <p className="pl-[38px] text-[10px]"><a href="mailto:pashupatitechnodreams@gmail.com" className="text-accent-amber hover:text-white font-semibold transition">pashupatitechnodreams@gmail.com</a></p>
             </div>
             <div className="flex items-center space-x-2">
               <a

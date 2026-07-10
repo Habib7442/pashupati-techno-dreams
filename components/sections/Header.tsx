@@ -34,8 +34,8 @@ export default function Header({
             </span>
             <span className="flex items-center">
               <Mail className="w-3.5 h-3.5 mr-2 text-accent-amber" />
-              <a href="mailto:pashupatitechnodreams@gmail.com" className="hover:text-accent-amber transition">
-                pashupatitechnodreams@gmail.com
+              <a href="mailto:info@pashupatitechno.in" className="text-white hover:text-accent-amber transition">
+                info@pashupatitechno.in
               </a>
             </span>
             <span className="flex items-center text-white/70">
@@ -182,7 +182,7 @@ export default function Header({
               >
                 Get a Quote
               </a>
-              <BookAppointmentButton size="sm" text="Book Appointment" />
+              <BookAppointmentButton size="sm" text="Book an Appointment" />
             </div>
           </nav>
 
@@ -313,7 +313,7 @@ export default function Header({
               >
                 Get a Quote
               </a>
-              <BookAppointmentButton size="md" text="Book Appointment" className="w-full" />
+              <BookAppointmentButton size="md" text="Book an Appointment" className="w-full" />
             </div>
           </div>
         </div>

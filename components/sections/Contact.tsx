@@ -41,88 +41,97 @@ export default function Contact({
   return (
     <section id="contact" className="py-16 lg:py-24 bg-bg-soft border-b border-border-grey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Contact Details & Map Column */}
-          <div className="lg:col-span-5 flex flex-col space-y-8">
-            <div>
-              <span className="text-[10px] font-extrabold text-accent-amber uppercase tracking-wider">
-                Contact Details
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-headings-ink mt-1 leading-tight tracking-tight">
-                Get in Touch
-              </h2>
-              <p className="text-xs text-body-slate mt-2 leading-relaxed text-justify">
-                Visit our office, give us a call, or fill out the enquiry form. We will respond promptly.
-              </p>
+        {/* Top Heading Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-6">
+          <div className="lg:col-span-5">
+            <span className="text-[10px] font-extrabold text-accent-amber uppercase tracking-wider">
+              Contact Details
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-headings-ink mt-1 leading-tight tracking-tight">
+              Get in Touch
+            </h2>
+            <p className="text-xs text-body-slate mt-2 leading-relaxed text-justify">
+              Visit our office, give us a call, or fill out the enquiry form. We will respond promptly.
+            </p>
+          </div>
+          <div className="lg:col-span-7 hidden lg:block"></div>
+        </div>
+
+        {/* Cards Grid Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+          {/* Left Cards List */}
+          <div className="lg:col-span-5 flex flex-col space-y-5 h-full">
+            <div className="group flex items-start space-x-4 p-5 sm:p-6 bg-white rounded-xl shadow-sm border border-border-grey hover:border-accent-amber/30 hover:shadow-md transition-all duration-300">
+              <div className="bg-primary-navy/5 text-primary-navy p-3 rounded-lg flex-shrink-0 group-hover:bg-primary-navy group-hover:text-white transition-colors duration-300">
+                <MapPin className="w-5 h-5 text-accent-amber" />
+              </div>
+              <div>
+                <strong className="block text-sm text-headings-ink">Office Address</strong>
+                <span className="text-xs text-body-slate mt-1 leading-relaxed">
+                  Room No. 26 (First Floor), Town Club Complex,<br />
+                  PWD Road, Silchar-1, Assam 788001, India
+                </span>
+              </div>
             </div>
 
-            {/* Detail Items */}
-            <div className="flex flex-col space-y-4">
-              <div className="group flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm border border-border-grey hover:border-accent-amber/30 hover:shadow-md transition-all duration-300">
-                <div className="bg-primary-navy/5 text-primary-navy p-3 rounded-lg flex-shrink-0 group-hover:bg-primary-navy group-hover:text-white transition-colors duration-300">
-                  <MapPin className="w-5 h-5 text-accent-amber" />
-                </div>
-                <div>
-                  <strong className="block text-sm text-headings-ink">Office Address</strong>
-                  <span className="text-xs text-body-slate mt-1 leading-relaxed">
-                    Room No. 26 (First Floor), Town Club Complex,<br />
-                    PWD Road, Silchar-1, Assam 788001, India
-                  </span>
-                </div>
+            <div className="group flex items-start space-x-4 p-5 sm:p-6 bg-white rounded-xl shadow-sm border border-border-grey hover:border-accent-amber/30 hover:shadow-md transition-all duration-300">
+              <div className="bg-primary-navy/5 text-primary-navy p-3 rounded-lg flex-shrink-0 group-hover:bg-primary-navy group-hover:text-white transition-colors duration-300">
+                <Phone className="w-5 h-5 text-accent-amber" />
               </div>
+              <div>
+                <strong className="block text-sm text-headings-ink">Mobile Contacts</strong>
+                <span className="text-xs text-body-slate mt-1 block">
+                  Primary:{" "}
+                  <a href="tel:+919706609966" className="font-semibold hover:text-accent-amber transition">
+                    +91 97066 09966
+                  </a>
+                </span>
+                <span className="text-xs text-body-slate block">
+                  WhatsApp/Alt:{" "}
+                  <a href="tel:+918136076717" className="font-semibold hover:text-accent-amber transition">
+                    +91 81360 76717
+                  </a>
+                </span>
+              </div>
+            </div>
 
-              <div className="group flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm border border-border-grey hover:border-accent-amber/30 hover:shadow-md transition-all duration-300">
-                <div className="bg-primary-navy/5 text-primary-navy p-3 rounded-lg flex-shrink-0 group-hover:bg-primary-navy group-hover:text-white transition-colors duration-300">
-                  <Phone className="w-5 h-5 text-accent-amber" />
-                </div>
-                <div>
-                  <strong className="block text-sm text-headings-ink">Mobile Contacts</strong>
-                  <span className="text-xs text-body-slate mt-1 block">
-                    Primary:{" "}
-                    <a href="tel:+919706609966" className="font-semibold hover:text-accent-amber transition">
-                      +91 97066 09966
-                    </a>
-                  </span>
-                  <span className="text-xs text-body-slate block">
-                    WhatsApp/Alt:{" "}
-                    <a href="tel:+918136076717" className="font-semibold hover:text-accent-amber transition">
-                      +91 81360 76717
-                    </a>
-                  </span>
-                </div>
+            <div className="group flex items-start space-x-4 p-5 sm:p-6 bg-white rounded-xl shadow-sm border border-border-grey hover:border-accent-amber/30 hover:shadow-md transition-all duration-300">
+              <div className="bg-primary-navy/5 text-primary-navy p-3 rounded-lg flex-shrink-0 group-hover:bg-primary-navy group-hover:text-white transition-colors duration-300">
+                <Mail className="w-5 h-5 text-accent-amber" />
               </div>
+              <div>
+                <strong className="block text-sm text-headings-ink">Email Addresses</strong>
+                <span className="text-xs text-body-slate mt-1 block">
+                  Primary:{" "}
+                  <a href="mailto:info@pashupatitechno.in" className="hover:text-accent-amber font-semibold transition">
+                    info@pashupatitechno.in
+                  </a>
+                </span>
+                <span className="text-xs text-body-slate block">
+                  Secondary:{" "}
+                  <a href="mailto:pashupatitechnodreams@gmail.com" className="hover:text-accent-amber font-semibold transition">
+                    pashupatitechnodreams@gmail.com
+                  </a>
+                </span>
+              </div>
+            </div>
 
-              <div className="group flex items-start space-x-4 p-4 bg-white rounded-xl shadow-sm border border-border-grey hover:border-accent-amber/30 hover:shadow-md transition-all duration-300">
-                <div className="bg-primary-navy/5 text-primary-navy p-3 rounded-lg flex-shrink-0 group-hover:bg-primary-navy group-hover:text-white transition-colors duration-300">
-                  <Mail className="w-5 h-5 text-accent-amber" />
-                </div>
-                <div>
-                  <strong className="block text-sm text-headings-ink">Email Address</strong>
-                  <span className="text-xs text-body-slate mt-1">
-                    <a href="mailto:pashupatitechnodreams@gmail.com" className="hover:text-accent-amber font-semibold transition">
-                      pashupatitechnodreams@gmail.com
-                    </a>
-                  </span>
-                </div>
-              </div>
-
-              {/* WhatsApp direct scheduling box */}
-              <div className="bg-white border border-border-grey rounded-xl p-5 shadow-sm text-left">
-                <h4 className="text-sm font-extrabold text-headings-ink mb-1">
-                  Need a Direct Appointment?
-                </h4>
-                <p className="text-xs text-body-slate mb-3 leading-relaxed">
-                  Skip the form! Book a direct scheduling consultation with our engineering team instantly.
-                </p>
-                <BookAppointmentButton size="sm" className="w-full" />
-              </div>
+            {/* WhatsApp direct scheduling box */}
+            <div className="bg-white border border-border-grey rounded-xl p-6 sm:p-7 shadow-sm text-left">
+              <h4 className="text-sm font-extrabold text-headings-ink mb-1">
+                Need a Direct Appointment?
+              </h4>
+              <p className="text-xs text-body-slate mb-3 leading-relaxed">
+                Skip the form! Book a direct scheduling consultation with our engineering team instantly.
+              </p>
+              <BookAppointmentButton size="sm" className="w-full" />
             </div>
           </div>
 
           {/* Right Contact Form Column */}
-          <div className="lg:col-span-7 bg-white rounded-xl p-6 sm:p-8 shadow-md border border-border-grey relative overflow-hidden self-start">
+          <div className="lg:col-span-7 bg-white rounded-xl p-6 sm:p-8 shadow-md border border-border-grey relative overflow-hidden flex flex-col h-full">
             <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary-navy to-accent-amber"></div>
-            
+
             <h3 className="text-lg font-extrabold text-headings-ink mb-6 pb-3 border-b border-border-grey flex items-center justify-between">
               <span>Send Project Enquiry</span>
               <span className="text-[10px] text-accent-amber font-extrabold uppercase bg-accent-amber/5 px-2.5 py-1 rounded-full tracking-wider">Fast Response</span>
@@ -146,7 +155,7 @@ export default function Contact({
                   Your project requirements have been saved in our records. If you'd like to get an
                   immediate response or share further project files, connect with us directly on WhatsApp.
                 </p>
-                
+
                 <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center items-center">
                   <button
                     onClick={() => {
@@ -182,133 +191,130 @@ I would like to discuss my enquiry further.
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-5 text-xs">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Name */}
+              <form onSubmit={handleFormSubmit} className="flex-grow flex flex-col text-xs mt-2">
+                <div className="space-y-5 flex-grow mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Name */}
+                    <div>
+                      <label htmlFor="form-name" className="block text-headings-ink font-bold mb-1.5">
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="form-name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className={`w-full p-3.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200 ${formErrors.name ? "border-red-500 focus:ring-red-550/10" : "border-border-grey"
+                          }`}
+                        placeholder="John Doe"
+                      />
+                      {formErrors.name && (
+                        <span className="text-[10px] text-red-550 block mt-1">{formErrors.name}</span>
+                      )}
+                    </div>
+
+                    {/* Phone */}
+                    <div>
+                      <label htmlFor="form-phone" className="block text-headings-ink font-bold mb-1.5">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="text"
+                        id="form-phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className={`w-full p-3.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200 ${formErrors.phone ? "border-red-500 focus:ring-red-550/10" : "border-border-grey"
+                          }`}
+                        placeholder="+91 98765 43210"
+                      />
+                      {formErrors.phone && (
+                        <span className="text-[10px] text-red-550 block mt-1">{formErrors.phone}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Email */}
+                    <div>
+                      <label htmlFor="form-email" className="block text-headings-ink font-bold mb-1.5">
+                        Email Address (Optional)
+                      </label>
+                      <input
+                        type="email"
+                        id="form-email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full p-3.5 border border-border-grey rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+
+                    {/* Service selection */}
+                    <div>
+                      <label htmlFor="form-service" className="block text-headings-ink font-bold mb-1.5">
+                        Select Service Required *
+                      </label>
+                      <select
+                        id="form-service"
+                        name="service"
+                        value={formData.service}
+                        onChange={handleInputChange}
+                        className={`w-full p-3.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200 ${formErrors.service ? "border-red-500 focus:ring-red-550/10" : "border-border-grey"
+                          }`}
+                      >
+                        <option value="">-- Choose Option --</option>
+                        <option value="Architectural Planning & Design">Architectural Planning & Design</option>
+                        <option value="Structural Engineering & Design">Structural Engineering & Design</option>
+                        <option value="Construction Planning & Project Management">Construction Planning & Project Management</option>
+                        <option value="Vastu-Compliant Architectural Planning">Vastu-Compliant Architectural Planning</option>
+                        <option value="3D Architectural Visualization">3D Architectural Visualization</option>
+                        <option value="Instant Residential Building Approval">Instant Residential Building Approval (MMSGNA)</option>
+                        <option value="Building Permit & Statutory Approval Drawings">Building Permit & Statutory Approval Drawings</option>
+                        <option value="Estimate & Property Valuation">Estimate & Property Valuation</option>
+                        <option value="Land Surveying, GIS Mapping & DPR Preparation">Land Surveying, GIS Mapping & DPR</option>
+                      </select>
+                      {formErrors.service && (
+                        <span className="text-[10px] text-red-550 block mt-1">{formErrors.service}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Message */}
                   <div>
-                    <label htmlFor="form-name" className="block text-headings-ink font-bold mb-1.5">
-                      Your Name *
+                    <label htmlFor="form-message" className="block text-headings-ink font-bold mb-1.5">
+                      Message details *
                     </label>
-                    <input
-                      type="text"
-                      id="form-name"
-                      name="name"
-                      value={formData.name}
+                    <textarea
+                      id="form-message"
+                      name="message"
+                      rows={4}
+                      value={formData.message}
                       onChange={handleInputChange}
-                      className={`w-full p-3.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200 ${
-                        formErrors.name ? "border-red-500 focus:ring-red-550/10" : "border-border-grey"
-                      }`}
-                      placeholder="John Doe"
-                    />
-                    {formErrors.name && (
-                      <span className="text-[10px] text-red-550 block mt-1">{formErrors.name}</span>
+                      className={`w-full p-3.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200 ${formErrors.message ? "border-red-500 focus:ring-red-550/10" : "border-border-grey"
+                        }`}
+                      placeholder="Briefly describe your land dimensions, room requirements, or structural needs..."
+                    ></textarea>
+                    {formErrors.message && (
+                      <span className="text-[10px] text-red-550 block mt-1">{formErrors.message}</span>
                     )}
                   </div>
 
-                  {/* Phone */}
-                  <div>
-                    <label htmlFor="form-phone" className="block text-headings-ink font-bold mb-1.5">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="text"
-                      id="form-phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className={`w-full p-3.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200 ${
-                        formErrors.phone ? "border-red-500 focus:ring-red-550/10" : "border-border-grey"
-                      }`}
-                      placeholder="+91 98765 43210"
-                    />
-                    {formErrors.phone && (
-                      <span className="text-[10px] text-red-550 block mt-1">{formErrors.phone}</span>
-                    )}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="form-email" className="block text-headings-ink font-bold mb-1.5">
-                      Email Address (Optional)
-                    </label>
-                    <input
-                      type="email"
-                      id="form-email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full p-3.5 border border-border-grey rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-
-                  {/* Service selection */}
-                  <div>
-                    <label htmlFor="form-service" className="block text-headings-ink font-bold mb-1.5">
-                      Select Service Required *
-                    </label>
-                    <select
-                      id="form-service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      className={`w-full p-3.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200 ${
-                        formErrors.service ? "border-red-500 focus:ring-red-550/10" : "border-border-grey"
-                      }`}
-                    >
-                      <option value="">-- Choose Option --</option>
-                      <option value="Architectural Planning & Design">Architectural Planning & Design</option>
-                      <option value="Structural Engineering & Design">Structural Engineering & Design</option>
-                      <option value="Construction Planning & Project Management">Construction Planning & Project Management</option>
-                      <option value="Vastu-Compliant Architectural Planning">Vastu-Compliant Architectural Planning</option>
-                      <option value="3D Architectural Visualization">3D Architectural Visualization</option>
-                      <option value="Instant Residential Building Approval">Instant Residential Building Approval (MMSGNA)</option>
-                      <option value="Building Permit & Statutory Approval Drawings">Building Permit & Statutory Approval Drawings</option>
-                      <option value="Estimate & Property Valuation">Estimate & Property Valuation</option>
-                      <option value="Land Surveying, GIS Mapping & DPR Preparation">Land Surveying, GIS Mapping & DPR</option>
-                    </select>
-                    {formErrors.service && (
-                      <span className="text-[10px] text-red-550 block mt-1">{formErrors.service}</span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label htmlFor="form-message" className="block text-headings-ink font-bold mb-1.5">
-                    Message details *
-                  </label>
-                  <textarea
-                    id="form-message"
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className={`w-full p-3.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-amber/10 focus:border-accent-amber bg-white transition-all duration-200 ${
-                      formErrors.message ? "border-red-500 focus:ring-red-550/10" : "border-border-grey"
-                    }`}
-                    placeholder="Briefly describe your land dimensions, room requirements, or structural needs..."
-                  ></textarea>
-                  {formErrors.message && (
-                    <span className="text-[10px] text-red-550 block mt-1">{formErrors.message}</span>
+                  {formErrors.submit && (
+                    <div className="p-3.5 bg-red-55/10 border border-red-500/20 text-red-550 rounded-lg text-center font-bold mb-2">
+                      {formErrors.submit}
+                    </div>
                   )}
                 </div>
-
-                {formErrors.submit && (
-                  <div className="p-3.5 bg-red-55/10 border border-red-500/20 text-red-550 rounded-lg text-center font-bold mb-2">
-                    {formErrors.submit}
-                  </div>
-                )}
 
                 {/* Submit button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full text-white font-extrabold py-4 px-6 rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center text-sm cursor-pointer ${
-                    isSubmitting ? "bg-primary-navy/70 cursor-not-allowed" : "bg-primary-navy hover:bg-primary-navy-alt"
-                  }`}
+                  className={`w-full text-white font-extrabold py-4 px-6 rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center text-sm cursor-pointer ${isSubmitting ? "bg-primary-navy/70 cursor-not-allowed" : "bg-primary-navy hover:bg-primary-navy-alt"
+                    }`}
                 >
                   {isSubmitting ? (
                     <div className="flex items-center space-x-2">
